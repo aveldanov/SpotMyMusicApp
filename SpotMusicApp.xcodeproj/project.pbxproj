@@ -29,6 +29,7 @@
 		217A0C68267D82FC008705A9 /* AudioTrackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217A0C67267D82FC008705A9 /* AudioTrackModel.swift */; };
 		217A0C6A267D830F008705A9 /* ArtistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217A0C69267D830E008705A9 /* ArtistModel.swift */; };
 		217A0C6C267D8319008705A9 /* UserProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217A0C6B267D8319008705A9 /* UserProfileModel.swift */; };
+		217A0C6E267D903F008705A9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217A0C6D267D903F008705A9 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		217A0C67267D82FC008705A9 /* AudioTrackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTrackModel.swift; sourceTree = "<group>"; };
 		217A0C69267D830E008705A9 /* ArtistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistModel.swift; sourceTree = "<group>"; };
 		217A0C6B267D8319008705A9 /* UserProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileModel.swift; sourceTree = "<group>"; };
+		217A0C6D267D903F008705A9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 			children = (
 				217A0C36267D6A4B008705A9 /* Assets.xcassets */,
 				217A0C2D267D6A48008705A9 /* AppDelegate.swift */,
+				217A0C6D267D903F008705A9 /* Extensions.swift */,
 				217A0C2F267D6A48008705A9 /* SceneDelegate.swift */,
 			);
 			path = Resources;
@@ -261,6 +264,7 @@
 				217A0C66267D82E6008705A9 /* PlaylistModel.swift in Sources */,
 				217A0C5A267D81FA008705A9 /* PlaylistViewController.swift in Sources */,
 				217A0C68267D82FC008705A9 /* AudioTrackModel.swift in Sources */,
+				217A0C6E267D903F008705A9 /* Extensions.swift in Sources */,
 				217A0C30267D6A48008705A9 /* SceneDelegate.swift in Sources */,
 				217A0C6C267D8319008705A9 /* UserProfileModel.swift in Sources */,
 				217A0C58267D81EE008705A9 /* PlayerViewController.swift in Sources */,
