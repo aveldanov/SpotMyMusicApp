@@ -24,12 +24,16 @@ class AuthViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Sign In"
-        
         view.backgroundColor = .systemBackground
-
+        webView.navigationDelegate = self
+        view.addSubview(webView)
     }
     
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        webView.frame = view.bounds
+    }
 
 
 }
