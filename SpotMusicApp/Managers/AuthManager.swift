@@ -26,4 +26,12 @@ final class AuthManager{
         return nil
     }
     
+    private var expirationDate: Date?{
+        return nil
+    }
+    
+    private var shouldRefreshToken: Bool{
+        return false
+    }
+    
 }
