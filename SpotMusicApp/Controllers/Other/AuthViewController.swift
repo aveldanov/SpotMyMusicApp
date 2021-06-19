@@ -20,6 +20,9 @@ class AuthViewController: UIViewController, WKNavigationDelegate {
         return webView
     }()
     
+    public var completionHandler: ((Bool)->Void)?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

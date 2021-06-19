@@ -12,7 +12,7 @@ class WelcomeViewController: UIViewController {
     private let signInButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .white
-        button.setTitle("Sign In with Spotigy", for: .normal)
+        button.setTitle("Sign In with Spotify", for: .normal)
         button.setTitleColor(.blue, for: .normal)
         return button
     }()
@@ -37,8 +37,19 @@ class WelcomeViewController: UIViewController {
     
     @objc func didTabSignIn(){
         let vc = AuthViewController()
+        vc.completionHandler = {[weak self] success in
+            DispatchQueue.main.async {
+                self?.handleSignIn(success: success)
+            }
+        }
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
+    func handleSignIn(success: Bool){
+        // log user in or yell for error
+        
     }
 
 }
