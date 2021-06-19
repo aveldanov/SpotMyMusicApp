@@ -48,4 +48,10 @@ final class AuthManager{
         return false
     }
     
+    
+    public func exchangeCodeForToken(code:String, completion:@escaping (Bool)->(Void)){
+        
+        
+    }
+    
 }
