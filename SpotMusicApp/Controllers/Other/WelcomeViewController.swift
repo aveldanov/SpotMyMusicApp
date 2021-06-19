@@ -28,11 +28,11 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
+        signInButton.frame = CGRect(x: 20, y: 1, width: 200, height: 50)
         
     }
     
-    func didTabSignIn(){
+    @objc func didTabSignIn(){
         let vc = AuthViewController()
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
