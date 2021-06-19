@@ -23,7 +23,7 @@ final class AuthManager{
         let base = "https://accounts.spotify.com/authorize"
         let rediectURI = "https://www.intuit.com/"
         let scopes = "user-read-private"
-        let string = "\(base)?response_type=code&client_id=\(Constants.clientID)&scope=\(scopes)&redirect_uri=\(rediectURI)"
+        let string = "\(base)?response_type=code&client_id=\(Constants.clientID)&scope=\(scopes)&redirect_uri=\(rediectURI)&show_dialog=TRUE"
         return URL(string: string)
     }
     
