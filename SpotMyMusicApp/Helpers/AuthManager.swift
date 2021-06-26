@@ -24,6 +24,14 @@ final class AuthManager{
         return false
     }
     
+    public var signInURL: URL?{
+        let scope = "user-read-private"
+        let baseURLSting = "https://accounts.spotify.com/authorize"
+        let redirectURI = "https://www.intuit.com/"
+        let urlString = "\(baseURLSting)?response_type=code&client_id=\(Constants.clientID)&scope=\(scope)&redirect_uri=\(redirectURI)&show_dialog=TRUE"
+        return URL(string: urlString)
+    }
+    
     private var accessToken: String?{
         return nil
     }

@@ -29,6 +29,12 @@ class AuthViewController: UIViewController, WKNavigationDelegate {
         view.backgroundColor = .systemBackground
         webView.navigationDelegate = self
         view.addSubview(webView)
+        
+        guard let url = AuthManager.shared.signInURL else {
+            return
+        }
+        
+        webView.load(URLRequest(url: url))
     }
     
     override func viewDidLayoutSubviews() {
@@ -37,6 +43,21 @@ class AuthViewController: UIViewController, WKNavigationDelegate {
         
     }
     
+    
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        guard let url = webView.url else {
+            return
+        }
+        // Exchange the code for access token from URL we get from Spotify callbacl url
+        
+        let component = URLComponents(string: url.absoluteString)
+        guard let code = component?.queryItems?.first(where: {$0.name == "code"
+        })?.value else{
+            return
+        }
+        
+        print("Code\(code)")
+    }
 
 
 }

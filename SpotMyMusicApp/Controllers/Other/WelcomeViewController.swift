@@ -42,7 +42,7 @@ class WelcomeViewController: UIViewController {
         let vc = AuthViewController()
         vc.completion = { success in
             DispatchQueue.main.async {
-                self?.handleSignIn(success: success)
+                self.handleSignIn(success: success)
             }
         }
         
