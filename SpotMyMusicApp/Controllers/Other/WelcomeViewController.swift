@@ -15,6 +15,18 @@ class WelcomeViewController: UIViewController {
         view.backgroundColor = .systemGreen
     }
     
-
-
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        
+    }
+    
+    
+    func signInButtonClicked(){
+        let vc = AuthViewController()
+        vc.navigationItem.largeTitleDisplayMode = .never
+        
+        
+        
+    }
 }
