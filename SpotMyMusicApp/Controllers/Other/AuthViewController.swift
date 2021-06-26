@@ -19,6 +19,10 @@ class AuthViewController: UIViewController, WKNavigationDelegate {
         let webView = WKWebView(frame: .zero, configuration: config)
         return webView
     }()
+    
+    public var completion: ((Bool)->(Void))?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Sign In"

@@ -29,6 +29,7 @@
 		215623EB2687C8C300EA36F4 /* AudioTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215623EA2687C8C300EA36F4 /* AudioTrack.swift */; };
 		215623ED2687C8D400EA36F4 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215623EC2687C8D400EA36F4 /* Artist.swift */; };
 		215623EF2687C8E600EA36F4 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215623EE2687C8E600EA36F4 /* UserProfile.swift */; };
+		215624112687D64000EA36F4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215624102687D64000EA36F4 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		215623EA2687C8C300EA36F4 /* AudioTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTrack.swift; sourceTree = "<group>"; };
 		215623EC2687C8D400EA36F4 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		215623EE2687C8E600EA36F4 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		215624102687D64000EA36F4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 			children = (
 				215623B92687C21F00EA36F4 /* Assets.xcassets */,
 				215623B02687C21E00EA36F4 /* AppDelegate.swift */,
+				215624102687D64000EA36F4 /* Extensions.swift */,
 				215623B22687C21E00EA36F4 /* SceneDelegate.swift */,
 			);
 			path = Resources;
@@ -169,12 +172,12 @@
 			isa = PBXGroup;
 			children = (
 				215623D42687C7E400EA36F4 /* AuthViewController.swift */,
+				215623D62687C7ED00EA36F4 /* WelcomeViewController.swift */,
 				215623D82687C7F700EA36F4 /* SettingsViewController.swift */,
 				215623DA2687C80B00EA36F4 /* ProfileViewController.swift */,
 				215623DC2687C81900EA36F4 /* PlayerViewController.swift */,
 				215623DE2687C82E00EA36F4 /* PlaylistViewController.swift */,
 				215623E02687C84600EA36F4 /* SearchResultsViewController.swift */,
-				215623D62687C7ED00EA36F4 /* WelcomeViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				215623D52687C7E400EA36F4 /* AuthViewController.swift in Sources */,
 				215623B12687C21E00EA36F4 /* AppDelegate.swift in Sources */,
 				215623EF2687C8E600EA36F4 /* UserProfile.swift in Sources */,
+				215624112687D64000EA36F4 /* Extensions.swift in Sources */,
 				215623D12687C7C100EA36F4 /* LibraryViewController.swift in Sources */,
 				215623ED2687C8D400EA36F4 /* Artist.swift in Sources */,
 				215623DF2687C82E00EA36F4 /* PlaylistViewController.swift in Sources */,

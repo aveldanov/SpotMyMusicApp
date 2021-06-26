@@ -8,25 +8,55 @@
 import UIKit
 
 class WelcomeViewController: UIViewController {
-
+    
+    private let signInButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .white
+        button.setTitle("Sign In wtih Spotify", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        return button
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "SpotMyMusic"
         view.backgroundColor = .systemGreen
+        view.addSubview(signInButton)
+        signInButton.addTarget(self, action: #selector(signInButtonClicked), for: .touchUpInside)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        signInButton.frame = CGRect(
+            x: 20,
+            y: view.height-50-view.safeAreaInsets.bottom,
+            width: view.width-40,
+            height: 50
+        )
+        
+    }
+    
+    
+    @objc func signInButtonClicked(){
+        let vc = AuthViewController()
+        vc.completion = { success in
+            DispatchQueue.main.async {
+                self?.handleSignIn(success: success)
+            }
+        }
+        
+        
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
         
         
     }
     
     
-    func signInButtonClicked(){
-        let vc = AuthViewController()
-        vc.navigationItem.largeTitleDisplayMode = .never
-        
-        
+    
+    private func handleSignIn(success: Bool){
+        //log user in or yell for error
         
     }
 }
