@@ -9,19 +9,37 @@
 /* Begin PBXBuildFile section */
 		215623B12687C21E00EA36F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215623B02687C21E00EA36F4 /* AppDelegate.swift */; };
 		215623B32687C21E00EA36F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215623B22687C21E00EA36F4 /* SceneDelegate.swift */; };
-		215623B52687C21E00EA36F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215623B42687C21E00EA36F4 /* ViewController.swift */; };
+		215623B52687C21E00EA36F4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215623B42687C21E00EA36F4 /* HomeViewController.swift */; };
 		215623BA2687C21F00EA36F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 215623B92687C21F00EA36F4 /* Assets.xcassets */; };
 		215623BD2687C21F00EA36F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 215623BB2687C21F00EA36F4 /* LaunchScreen.storyboard */; };
+		215623CD2687C74800EA36F4 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215623CC2687C74800EA36F4 /* TabBarViewController.swift */; };
+		215623CF2687C7AA00EA36F4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215623CE2687C7AA00EA36F4 /* SearchViewController.swift */; };
+		215623D12687C7C100EA36F4 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215623D02687C7C100EA36F4 /* LibraryViewController.swift */; };
+		215623D52687C7E400EA36F4 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215623D42687C7E400EA36F4 /* AuthViewController.swift */; };
+		215623D72687C7ED00EA36F4 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215623D62687C7ED00EA36F4 /* WelcomeViewController.swift */; };
+		215623D92687C7F700EA36F4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215623D82687C7F700EA36F4 /* SettingsViewController.swift */; };
+		215623DB2687C80B00EA36F4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215623DA2687C80B00EA36F4 /* ProfileViewController.swift */; };
+		215623DD2687C81900EA36F4 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215623DC2687C81900EA36F4 /* PlayerViewController.swift */; };
+		215623DF2687C82E00EA36F4 /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215623DE2687C82E00EA36F4 /* PlaylistViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		215623AD2687C21E00EA36F4 /* SpotMyMusicApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotMyMusicApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		215623B02687C21E00EA36F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		215623B22687C21E00EA36F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		215623B42687C21E00EA36F4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		215623B42687C21E00EA36F4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		215623B92687C21F00EA36F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		215623BC2687C21F00EA36F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		215623BE2687C21F00EA36F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		215623CC2687C74800EA36F4 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		215623CE2687C7AA00EA36F4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		215623D02687C7C100EA36F4 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
+		215623D42687C7E400EA36F4 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		215623D62687C7ED00EA36F4 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		215623D82687C7F700EA36F4 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		215623DA2687C80B00EA36F4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		215623DC2687C81900EA36F4 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		215623DE2687C82E00EA36F4 /* PlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +86,8 @@
 		215623C42687C27500EA36F4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				215623B42687C21E00EA36F4 /* ViewController.swift */,
+				215623D32687C7D300EA36F4 /* Other */,
+				215623D22687C7C500EA36F4 /* Core */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -110,6 +129,30 @@
 				215623B22687C21E00EA36F4 /* SceneDelegate.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		215623D22687C7C500EA36F4 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				215623B42687C21E00EA36F4 /* HomeViewController.swift */,
+				215623CC2687C74800EA36F4 /* TabBarViewController.swift */,
+				215623CE2687C7AA00EA36F4 /* SearchViewController.swift */,
+				215623D02687C7C100EA36F4 /* LibraryViewController.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		215623D32687C7D300EA36F4 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				215623D42687C7E400EA36F4 /* AuthViewController.swift */,
+				215623D82687C7F700EA36F4 /* SettingsViewController.swift */,
+				215623DA2687C80B00EA36F4 /* ProfileViewController.swift */,
+				215623DC2687C81900EA36F4 /* PlayerViewController.swift */,
+				215623DE2687C82E00EA36F4 /* PlaylistViewController.swift */,
+				215623D62687C7ED00EA36F4 /* WelcomeViewController.swift */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,9 +224,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				215623B52687C21E00EA36F4 /* ViewController.swift in Sources */,
+				215623CF2687C7AA00EA36F4 /* SearchViewController.swift in Sources */,
+				215623D72687C7ED00EA36F4 /* WelcomeViewController.swift in Sources */,
+				215623DB2687C80B00EA36F4 /* ProfileViewController.swift in Sources */,
+				215623CD2687C74800EA36F4 /* TabBarViewController.swift in Sources */,
+				215623B52687C21E00EA36F4 /* HomeViewController.swift in Sources */,
+				215623D52687C7E400EA36F4 /* AuthViewController.swift in Sources */,
 				215623B12687C21E00EA36F4 /* AppDelegate.swift in Sources */,
+				215623D12687C7C100EA36F4 /* LibraryViewController.swift in Sources */,
+				215623DF2687C82E00EA36F4 /* PlaylistViewController.swift in Sources */,
 				215623B32687C21E00EA36F4 /* SceneDelegate.swift in Sources */,
+				215623DD2687C81900EA36F4 /* PlayerViewController.swift in Sources */,
+				215623D92687C7F700EA36F4 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
