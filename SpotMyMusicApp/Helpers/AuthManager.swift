@@ -20,11 +20,7 @@ final class AuthManager{
     
     
     private init(){}
-    
-    var isSignedIn: Bool{
-        return false
-    }
-    
+        
     public var signInURL: URL?{
         let scope = "user-read-private"
         let baseURLSting = "https://accounts.spotify.com/authorize"
@@ -33,16 +29,20 @@ final class AuthManager{
         return URL(string: urlString)
     }
     
+    var isSignedIn: Bool{
+        return accessToken != nil
+    }
+    
     private var accessToken: String?{
-        return nil
+        return UserDefaults.standard.string(forKey: "access_token")
     }
     
     private var refreshToken: String?{
-        return nil
+        return UserDefaults.standard.string(forKey: "refresh_token")
     }
     
     private var tokenExpirationDate: Date?{
-        return nil
+        return UserDefaults.standard.object(forKey: "expirationDate") as? Date
     }
     
     private var shouldRefreshToken: Bool{
