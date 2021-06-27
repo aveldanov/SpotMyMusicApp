@@ -92,11 +92,6 @@ final class AuthManager{
             }
             
             do{
-                //                let json = try JSONSerialization.jsonObject(
-                //                    with: data,
-                //                    options: .allowFragments
-                //                )
-                
                 let result = try JSONDecoder().decode(AuthResponse.self, from: data)
                 self.cacheToken(result: result)
                 
@@ -118,7 +113,7 @@ final class AuthManager{
     
     private var onRefreshBlocks = [(String)->(Void)]()
     
-    
+    /// Supplies a valid token to be use with API calls
     public func withValidToken(completion: @escaping (String)->(Void)){
         guard !refreshingToken else {
             //append the completion...to wait
