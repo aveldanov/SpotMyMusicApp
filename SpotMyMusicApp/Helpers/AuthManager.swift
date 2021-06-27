@@ -138,14 +138,12 @@ final class AuthManager{
     
     
     public func refreshTokenIfNeeded(completion: @escaping (Bool)->(Void) ){
-        
+        // checking if it is currently being refreshed
         guard !refreshingToken else {
             return
         }
         
-        
-        
-        
+
         // comment for forced refresh - testing
         guard shouldRefreshToken else {
             completion(true)
@@ -213,21 +211,15 @@ final class AuthManager{
                 print("URL Session Failure",error.localizedDescription)
                 completion(false)
             }
-            
-            
-        }.resume()
-        
-        
+        }.resume() 
     }
     
     public func cacheToken(result: AuthResponse){
         UserDefaults.standard.setValue(result.access_token, forKey: "access_token")
-        
         // cash only if refreshed
         if let refresh_toker = result.refresh_token{
             UserDefaults.standard.setValue(result.refresh_token, forKey: "refresh_token")
         }
-        
         // time logged in + when its expires
         UserDefaults.standard.setValue(Date().addingTimeInterval(TimeInterval(result.expires_in)), forKey: "expirationDate")
         
