@@ -58,7 +58,7 @@ final class AuthManager{
         var components = URLComponents()
         components.queryItems = [
             URLQueryItem(name: "grant_type", value: "authorization_code"),
-            URLQueryItem(name: "code", value: "code"),
+            URLQueryItem(name: "code", value: code),
             URLQueryItem(name: "redirect_uri", value: "https://www.intuit.com/")
         ]
         
@@ -75,7 +75,7 @@ final class AuthManager{
         }
         
         
-        request.setValue("Authorization", forHTTPHeaderField: "Authorization")
+        request.setValue("Basic \(base64String)", forHTTPHeaderField: "Authorization")
 
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
@@ -84,10 +84,17 @@ final class AuthManager{
             }
             
             do{
-                let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                let json = try JSONSerialization.jsonObject(
+                    with: data,
+                    options: .allowFragments
+                )
                 print("SUCCESS",json)
+                
+                completion(true)
+                
             }catch{
-                print(error.localizedDescription)
+                
+                print("URL Session Failure",error.localizedDescription)
                 completion(false)
             }
             
