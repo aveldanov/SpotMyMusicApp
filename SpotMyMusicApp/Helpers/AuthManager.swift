@@ -11,6 +11,7 @@ import Foundation
 final class AuthManager{
     static let shared = AuthManager()
     
+    private var refreshingToken = false
     
     struct Constants {
         static let clientID = "cab2989e12fa45e69f28440e52f53172"
@@ -22,7 +23,7 @@ final class AuthManager{
     
     
     private init(){}
-        
+    
     public var signInURL: URL?{
         
         let baseURLSting = "https://accounts.spotify.com/authorize"
@@ -83,7 +84,7 @@ final class AuthManager{
         
         
         request.setValue("Basic \(base64String)", forHTTPHeaderField: "Authorization")
-
+        
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
                 completion(false)
@@ -91,10 +92,10 @@ final class AuthManager{
             }
             
             do{
-//                let json = try JSONSerialization.jsonObject(
-//                    with: data,
-//                    options: .allowFragments
-//                )
+                //                let json = try JSONSerialization.jsonObject(
+                //                    with: data,
+                //                    options: .allowFragments
+                //                )
                 
                 let result = try JSONDecoder().decode(AuthResponse.self, from: data)
                 self.cacheToken(result: result)
@@ -117,11 +118,10 @@ final class AuthManager{
     public func withValidToken(completion: @escaping (String)->(Void)){
         if shouldRefreshToken{
             //Refresh
-            
             refreshTokenIfNeeded { success in
-                    if let token = accessToken{
-                        completion(token)
-                    }
+                if let token = self.accessToken, success{
+                    completion(token)
+                }
             }
         }else if let token = accessToken{
             completion(token)
@@ -132,6 +132,14 @@ final class AuthManager{
     
     
     public func refreshTokenIfNeeded(completion: @escaping (Bool)->(Void) ){
+        
+        guard !refreshingToken else {
+            return
+        }
+        
+        
+        
+        
         // comment for forced refresh - testing
         guard shouldRefreshToken else {
             completion(true)
@@ -148,6 +156,11 @@ final class AuthManager{
         guard let url = URL(string: Constants.tokenAPIURL) else {
             return
         }
+        
+        
+        refreshingToken = true
+        
+        
         // POST components
         var components = URLComponents()
         components.queryItems = [
@@ -169,8 +182,9 @@ final class AuthManager{
         
         
         request.setValue("Basic \(base64String)", forHTTPHeaderField: "Authorization")
-
+        
         URLSession.shared.dataTask(with: request) { data, response, error in
+            refreshingToken = false
             guard let data = data, error == nil else {
                 completion(false)
                 return
@@ -207,6 +221,6 @@ final class AuthManager{
         
         // time logged in + when its expires
         UserDefaults.standard.setValue(Date().addingTimeInterval(TimeInterval(result.expires_in)), forKey: "expirationDate")
-
+        
     }
 }
