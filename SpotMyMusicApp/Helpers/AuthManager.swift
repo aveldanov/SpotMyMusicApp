@@ -84,11 +84,15 @@ final class AuthManager{
             }
             
             do{
-                let json = try JSONSerialization.jsonObject(
-                    with: data,
-                    options: .allowFragments
-                )
-                print("SUCCESS",json)
+//                let json = try JSONSerialization.jsonObject(
+//                    with: data,
+//                    options: .allowFragments
+//                )
+                
+                let result = try JSONDecoder().decode(AuthResponse.self, from: data)
+                self.cacheToken(result: result)
+                
+                print("SUCCESS",result)
                 
                 completion(true)
                 
@@ -107,8 +111,11 @@ final class AuthManager{
         
     }
     
-    public func cacheToken(){
-        
-        
+    public func cacheToken(result: AuthResponse){
+        UserDefaults.standard.setValue(result.access_token, forKey: "access_token")
+        UserDefaults.standard.setValue(result.refresh_token, forKey: "refresh_token")
+        // time logged in + when its expires
+        UserDefaults.standard.setValue(Date().addingTimeInterval(TimeInterval(result.expires_in)), forKey: "expirationDate")
+
     }
 }
