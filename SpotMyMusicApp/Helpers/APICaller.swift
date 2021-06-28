@@ -13,15 +13,33 @@ final class APICaller {
     private init(){}
     
     public func getCurrentUserProfile(completion: @escaping (Result<UserProfile,Error>)->(Void)){
-
+        
         
     }
     
-    private func createRequest(with url: URL?, completion:@escaping (URLRequest)->(Void)){
+    enum HttpMethod: String{
+        case GET
+        case POST
         
+        
+    }
+    
+    private func createRequest(
+        with url: URL?,
+        type: HttpMethod,
+        completion:@escaping (URLRequest)->(Void)
+    ){
         AuthManager.shared.withValidToken { token in
-            var request = URLRequest(url: <#T##URL#>)
-
+            guard let apiURL = url else{
+                return
+            }
+            
+            var request = URLRequest(url: apiURL)
+            
+            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            request.httpMethod = type.rawValue
+            request.timeoutInterval = 30
+            completion(request)
         }
         
         
