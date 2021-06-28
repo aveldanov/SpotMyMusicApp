@@ -15,7 +15,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         return tableView
     }()
     
-    
+    private var sections = [Section]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,31 +24,65 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         view.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
+        
+        configureModels()
     }
+    
+    
+    private func configureModels(){
+        sections.append(Section(title: "Profile", options: [Option(title: "View Your Profile", handler: {
+            DispatchQueue.main.async {
+                self.viewProfile()
+            }
+        })]))
+        
+        sections.append(Section(title: "Account", options: [Option(title: "Sign Out", handler: {
+            DispatchQueue.main.async {
+                self.signOutTapped()
+            }
+        })]))
+        
+    }
+    
+    private func viewProfile(){
+        let vc = ProfileViewController()
+        vc.title = "Profile"
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+    
+    private func signOutTapped(){
+        
+        //TODO
+    }
+    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
-        
-        
     }
+    
+    
     
      //MARK: TableView
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return sections.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return sections[section].options.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let model = sections[indexPath.section].options[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        cell.textLabel?.text = "Foo"
+        cell.textLabel?.text = model.title
         
         return cell
         
@@ -57,7 +91,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         // call handler for cell
-        
+        let model = sections[indexPath.section].options[indexPath.row]
+
     }
 
 
