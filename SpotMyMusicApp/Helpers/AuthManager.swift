@@ -130,6 +130,7 @@ final class AuthManager{
                 }
             }
         }else if let token = accessToken{
+            print("[AuthManager] TOKEN: ",token)
             completion(token)
         }
     }

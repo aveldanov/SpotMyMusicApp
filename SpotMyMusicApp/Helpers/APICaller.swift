@@ -13,7 +13,7 @@ final class APICaller {
     private init(){}
     
     struct Constants {
-        static let baseAPIURL = "https://api.spotify.com/v1/me" // from API page
+        static let baseAPIURL = "https://api.spotify.com/v1" // from API page
     }
     
     enum APIError: Error{
@@ -24,25 +24,28 @@ final class APICaller {
     
     public func getCurrentUserProfile(completion: @escaping (Result<UserProfile,Error>)->(Void)){
         
-        createRequest(with: URL(string: Constants.baseAPIURL+"/me"), type: .GET) { baseRequest in
+        createRequest(
+            with: URL(string: Constants.baseAPIURL+"/me"),
+            type: .GET) { baseRequest in
             URLSession.shared.dataTask(with: baseRequest) { data, response, error in
                 guard let data = data, error == nil else{
                     completion(.failure(APIError.failedToGetData))
                     return
                 }
-                
+   
                 do{
+//                    let result = try JSONSerialization.jsonObject(with: data, options: .allowFragments) // needed before model is created
                     
-                    let result = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                    print(result)
+                    let result = try JSONDecoder().decode(UserProfile.self, from: data)
+                    print("[APICaller] result",result)
                 }catch{
-                    
+                    print(error.localizedDescription)
                     completion(.failure(error))
                     
                 }
                 
                 
-            }
+            }.resume()
         }
     }
     
@@ -62,7 +65,7 @@ final class APICaller {
             guard let apiURL = url else{
                 return
             }
-            
+            print("[APICaller]TOKEN",token)
             var request = URLRequest(url: apiURL)
             
             request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
