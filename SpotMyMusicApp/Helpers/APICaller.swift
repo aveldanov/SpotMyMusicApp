@@ -13,13 +13,16 @@ final class APICaller {
     private init(){}
     
     public func getCurrentUserProfile(completion: @escaping (Result<UserProfile,Error>)->(Void)){
-        AuthManager.shared.withValidToken { token in
-            
-        }
+
         
     }
     
-    private func createRequest()->URLRequest{
+    private func createRequest(with url: URL?, completion:@escaping (URLRequest)->(Void)){
+        
+        AuthManager.shared.withValidToken { token in
+            var request = URLRequest(url: <#T##URL#>)
+
+        }
         
         
     }
