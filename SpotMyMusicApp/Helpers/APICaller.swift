@@ -33,7 +33,7 @@ final class APICaller {
                 
                 do{
                     
-                    let result = JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                    let result = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
                     print(result)
                 }catch{
                     
