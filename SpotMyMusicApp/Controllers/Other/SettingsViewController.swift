@@ -92,7 +92,15 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.deselectRow(at: indexPath, animated: true)
         // call handler for cell
         let model = sections[indexPath.section].options[indexPath.row]
-
+        model.handler()
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let model = sections[section]
+        
+        return model.title
     }
 
 
