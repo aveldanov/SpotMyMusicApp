@@ -21,9 +21,10 @@ class ProfileViewController: UIViewController {
             DispatchQueue.main.async {
                 switch result{
                 case .success(let model):
-                    self.updateUI(with model)
+                    self.updateUI(with: model)
                 case .failure(let error):
                     print(error.localizedDescription)
+                    self.failedToGetProfile()
                 }
             }
         }
@@ -31,6 +32,10 @@ class ProfileViewController: UIViewController {
     
     private func updateUI(with model: UserProfile){
         
+        
+    }
+    
+    private func failedToGetProfile(){
         
     }
 
