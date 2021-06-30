@@ -73,7 +73,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.width, height: view.width/1.5))
         let imageSize: CGFloat = headerView.height/2
+        
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: imageSize, height: imageSize))
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = imageSize/2
         headerView.addSubview(imageView)
         imageView.center = headerView.center
         imageView.contentMode = .scaleAspectFill
