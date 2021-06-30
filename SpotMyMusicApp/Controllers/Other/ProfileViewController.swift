@@ -8,14 +8,14 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Profile"
         fetchProfile()
         view.backgroundColor = .systemBackground
     }
-
+    
     private func fetchProfile(){
         APICaller.shared.getCurrentUserProfile { result in
             DispatchQueue.main.async {
@@ -36,7 +36,12 @@ class ProfileViewController: UIViewController {
     }
     
     private func failedToGetProfile(){
-        
+        let label = UILabel(frame: .zero)
+        label.text = "Failed To Load User Profile"
+        label.sizeToFit()
+        label.textColor = .secondaryLabel
+        view.addSubview(label)
+        label.center = view.center
     }
-
+    
 }
