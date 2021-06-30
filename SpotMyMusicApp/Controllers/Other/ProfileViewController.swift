@@ -12,6 +12,10 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Profile"
+        fetchProfile()
+    }
+
+    private func fetchProfile(){
         APICaller.shared.getCurrentUserProfile { result in
             switch result{
             case .success(let model):
@@ -21,6 +25,5 @@ class ProfileViewController: UIViewController {
             }
         }
     }
-
 
 }
