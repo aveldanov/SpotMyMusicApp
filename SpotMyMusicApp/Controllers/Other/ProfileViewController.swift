@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -70,8 +71,14 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         guard let urlString = urlString, let url = URL(string: urlString) else {
             return
         }
-        
-        
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.width, height: view.width/1.5))
+        let imageSize: CGFloat = headerView.height/2
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: imageSize, height: imageSize))
+        headerView.addSubview(imageView)
+        imageView.center = headerView.center
+        imageView.contentMode = .scaleAspectFill
+        imageView.sd_setImage(with: url, completed: nil)
+        tableView.tableHeaderView = headerView
     }
     
     
