@@ -13,17 +13,25 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         title = "Profile"
         fetchProfile()
+        view.backgroundColor = .systemBackground
     }
 
     private func fetchProfile(){
         APICaller.shared.getCurrentUserProfile { result in
-            switch result{
-            case .success(let model):
-                break
-            case .failure(let error):
-                print(error.localizedDescription)
+            DispatchQueue.main.async {
+                switch result{
+                case .success(let model):
+                    self.updateUI(with model)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
             }
         }
+    }
+    
+    private func updateUI(with model: UserProfile){
+        
+        
     }
 
 }
