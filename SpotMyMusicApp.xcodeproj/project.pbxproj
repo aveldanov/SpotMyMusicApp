@@ -32,9 +32,11 @@
 		215624112687D64000EA36F4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215624102687D64000EA36F4 /* Extensions.swift */; };
 		21562413268800F400EA36F4 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21562412268800F400EA36F4 /* AuthResponse.swift */; };
 		2156244026896DD100EA36F4 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2156243F26896DD100EA36F4 /* Settings.swift */; };
+		BC7A2F34223407F0148DD340 /* Pods_SpotMyMusicApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D91F356178C339228501AE /* Pods_SpotMyMusicApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1AC20F5EEF4C48CD921F4CFF /* Pods-SpotMyMusicApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotMyMusicApp.debug.xcconfig"; path = "Target Support Files/Pods-SpotMyMusicApp/Pods-SpotMyMusicApp.debug.xcconfig"; sourceTree = "<group>"; };
 		215623AD2687C21E00EA36F4 /* SpotMyMusicApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotMyMusicApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		215623B02687C21E00EA36F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		215623B22687C21E00EA36F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,8 @@
 		215624102687D64000EA36F4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		21562412268800F400EA36F4 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		2156243F26896DD100EA36F4 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		23D91F356178C339228501AE /* Pods_SpotMyMusicApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpotMyMusicApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA36359E302A5409914D610D /* Pods-SpotMyMusicApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotMyMusicApp.release.xcconfig"; path = "Target Support Files/Pods-SpotMyMusicApp/Pods-SpotMyMusicApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC7A2F34223407F0148DD340 /* Pods_SpotMyMusicApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +85,8 @@
 			children = (
 				215623AF2687C21E00EA36F4 /* SpotMyMusicApp */,
 				215623AE2687C21E00EA36F4 /* Products */,
+				928BF3F28888625A86E05A1E /* Pods */,
+				FBB84FC05AC12E257F59FA8A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -188,6 +195,24 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
+		928BF3F28888625A86E05A1E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1AC20F5EEF4C48CD921F4CFF /* Pods-SpotMyMusicApp.debug.xcconfig */,
+				BA36359E302A5409914D610D /* Pods-SpotMyMusicApp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FBB84FC05AC12E257F59FA8A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				23D91F356178C339228501AE /* Pods_SpotMyMusicApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -195,9 +220,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 215623C12687C21F00EA36F4 /* Build configuration list for PBXNativeTarget "SpotMyMusicApp" */;
 			buildPhases = (
+				0984B3EA458E584DFB5CCB10 /* [CP] Check Pods Manifest.lock */,
 				215623A92687C21E00EA36F4 /* Sources */,
 				215623AA2687C21E00EA36F4 /* Frameworks */,
 				215623AB2687C21E00EA36F4 /* Resources */,
+				86F80CEF1DFEC9B255C12EA5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -251,6 +278,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0984B3EA458E584DFB5CCB10 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SpotMyMusicApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		86F80CEF1DFEC9B255C12EA5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SpotMyMusicApp/Pods-SpotMyMusicApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SpotMyMusicApp/Pods-SpotMyMusicApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpotMyMusicApp/Pods-SpotMyMusicApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		215623A92687C21E00EA36F4 /* Sources */ = {
@@ -415,6 +484,7 @@
 		};
 		215623C22687C21F00EA36F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1AC20F5EEF4C48CD921F4CFF /* Pods-SpotMyMusicApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -434,6 +504,7 @@
 		};
 		215623C32687C21F00EA36F4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA36359E302A5409914D610D /* Pods-SpotMyMusicApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
