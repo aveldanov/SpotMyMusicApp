@@ -27,12 +27,7 @@ struct Album: Codable {
     let artists: [Artist]
 }
 
-struct Artist: Codable {
-    let name: String
-    let id: String
-    let external_urls: [String:String]
-    let type: String
-}
+
 
 
 
