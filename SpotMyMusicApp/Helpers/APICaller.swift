@@ -82,6 +82,24 @@ final class APICaller {
     }
     
     
+    public func getFeaturedPlaylists(completion:@escaping (Result<String,Error>)->(Void)){
+        createRequest(with: URL(string: Constants.baseAPIURL+"/browse/featured-playlists"), type: .GET) { request in
+            
+            URLSession.shared.dataTask(with: request) { data, response, error in
+                guard let data = data, error == nil else{
+                    return
+                }
+                
+                
+                
+                
+            }.resume()
+            
+            
+        }
+        
+        
+    }
     
     
     
