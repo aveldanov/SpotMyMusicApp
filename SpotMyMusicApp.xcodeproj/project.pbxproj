@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -32,6 +32,7 @@
 		215624112687D64000EA36F4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215624102687D64000EA36F4 /* Extensions.swift */; };
 		21562413268800F400EA36F4 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21562412268800F400EA36F4 /* AuthResponse.swift */; };
 		2156244026896DD100EA36F4 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2156243F26896DD100EA36F4 /* Settings.swift */; };
+		21DE1F2D268D789100B70D08 /* NewReleasesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DE1F2C268D789100B70D08 /* NewReleasesResponse.swift */; };
 		BC7A2F34223407F0148DD340 /* Pods_SpotMyMusicApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D91F356178C339228501AE /* Pods_SpotMyMusicApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		215624102687D64000EA36F4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		21562412268800F400EA36F4 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		2156243F26896DD100EA36F4 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		21DE1F2C268D789100B70D08 /* NewReleasesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReleasesResponse.swift; sourceTree = "<group>"; };
 		23D91F356178C339228501AE /* Pods_SpotMyMusicApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpotMyMusicApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA36359E302A5409914D610D /* Pods-SpotMyMusicApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotMyMusicApp.release.xcconfig"; path = "Target Support Files/Pods-SpotMyMusicApp/Pods-SpotMyMusicApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				215623E82687C8B800EA36F4 /* Playlist.swift */,
+				21DE1F2C268D789100B70D08 /* NewReleasesResponse.swift */,
 				215623EA2687C8C300EA36F4 /* AudioTrack.swift */,
 				215623EC2687C8D400EA36F4 /* Artist.swift */,
 				215623EE2687C8E600EA36F4 /* UserProfile.swift */,
@@ -201,7 +204,6 @@
 				1AC20F5EEF4C48CD921F4CFF /* Pods-SpotMyMusicApp.debug.xcconfig */,
 				BA36359E302A5409914D610D /* Pods-SpotMyMusicApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -335,6 +337,7 @@
 				215623DB2687C80B00EA36F4 /* ProfileViewController.swift in Sources */,
 				215623CD2687C74800EA36F4 /* TabBarViewController.swift in Sources */,
 				2156244026896DD100EA36F4 /* Settings.swift in Sources */,
+				21DE1F2D268D789100B70D08 /* NewReleasesResponse.swift in Sources */,
 				21562413268800F400EA36F4 /* AuthResponse.swift in Sources */,
 				215623EB2687C8C300EA36F4 /* AudioTrack.swift in Sources */,
 				215623B52687C21E00EA36F4 /* HomeViewController.swift in Sources */,

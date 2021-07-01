@@ -52,7 +52,7 @@ final class APICaller {
     
     
     public func getNewReleases(completion: @escaping (Result<String,Error>)->(Void)){
-        createRequest(with: URL(string: Constants.baseAPIURL+"/browse/new-releases?limit=50"), type: .GET) { request in
+        createRequest(with: URL(string: Constants.baseAPIURL+"/browse/new-releases?limit=1"), type: .GET) { request in
             URLSession.shared.dataTask(with: request) { data, response, error in
                 guard let data = data, error == nil else{
                     completion(.failure(APIError.failedToGetData))

@@ -23,7 +23,14 @@ class HomeViewController: UIViewController {
     
     private func fetchData(){
         APICaller.shared.getNewReleases { result in
+            switch result{
+            case .success(let model):
+                break //for now
+            case .failure(let error):
+                break // fpr now
             
+            
+            }
         }
         
         
