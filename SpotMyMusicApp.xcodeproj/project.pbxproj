@@ -33,6 +33,7 @@
 		21562413268800F400EA36F4 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21562412268800F400EA36F4 /* AuthResponse.swift */; };
 		2156244026896DD100EA36F4 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2156243F26896DD100EA36F4 /* Settings.swift */; };
 		21DE1F2D268D789100B70D08 /* NewReleasesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DE1F2C268D789100B70D08 /* NewReleasesResponse.swift */; };
+		21DE1F2F268D7AA700B70D08 /* APIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DE1F2E268D7AA700B70D08 /* APIImage.swift */; };
 		BC7A2F34223407F0148DD340 /* Pods_SpotMyMusicApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D91F356178C339228501AE /* Pods_SpotMyMusicApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		21562412268800F400EA36F4 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		2156243F26896DD100EA36F4 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		21DE1F2C268D789100B70D08 /* NewReleasesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReleasesResponse.swift; sourceTree = "<group>"; };
+		21DE1F2E268D7AA700B70D08 /* APIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIImage.swift; sourceTree = "<group>"; };
 		23D91F356178C339228501AE /* Pods_SpotMyMusicApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpotMyMusicApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA36359E302A5409914D610D /* Pods-SpotMyMusicApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotMyMusicApp.release.xcconfig"; path = "Target Support Files/Pods-SpotMyMusicApp/Pods-SpotMyMusicApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,6 +138,7 @@
 			children = (
 				215623E82687C8B800EA36F4 /* Playlist.swift */,
 				21DE1F2C268D789100B70D08 /* NewReleasesResponse.swift */,
+				21DE1F2E268D7AA700B70D08 /* APIImage.swift */,
 				215623EA2687C8C300EA36F4 /* AudioTrack.swift */,
 				215623EC2687C8D400EA36F4 /* Artist.swift */,
 				215623EE2687C8E600EA36F4 /* UserProfile.swift */,
@@ -332,6 +335,7 @@
 				215623E92687C8B800EA36F4 /* Playlist.swift in Sources */,
 				215623E32687C86300EA36F4 /* AuthManager.swift in Sources */,
 				215623E12687C84600EA36F4 /* SearchResultsViewController.swift in Sources */,
+				21DE1F2F268D7AA700B70D08 /* APIImage.swift in Sources */,
 				215623D72687C7ED00EA36F4 /* WelcomeViewController.swift in Sources */,
 				215623E72687C88700EA36F4 /* HapticsManager.swift in Sources */,
 				215623DB2687C80B00EA36F4 /* ProfileViewController.swift in Sources */,
