@@ -82,7 +82,7 @@ final class APICaller {
     }
     
     
-    public func getFeaturedPlaylists(completion:@escaping (Result<String,Error>)->(Void)){
+    public func getFeaturedPlaylists(completion:@escaping (Result<FeaturedPlaylistResponse,Error>)->(Void)){
         createRequest(with: URL(string: Constants.baseAPIURL+"/browse/featured-playlists?limit=2"), type: .GET) { request in
             
             URLSession.shared.dataTask(with: request) { data, response, error in
@@ -91,10 +91,10 @@ final class APICaller {
                 }
                 
                 do{
-                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                    print("[API Caller] json releases",json)
+                    let result = try JSONDecoder().decode(FeaturedPlaylistResponse.self, from: data)
                     
-//                    completion(.success(_))
+                print("[API Caller] get feat playlists", result)
+                    completion(.success(result))
                     
                 }catch{
                     print("[API Caller] get new releases", error.localizedDescription)
