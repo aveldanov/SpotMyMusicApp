@@ -28,12 +28,17 @@ class HomeViewController: UIViewController {
                 break //for now
             case .failure(let error):
                 break // fpr now
-            
-            
             }
         }
         
-        
+        APICaller.shared.getFeaturedPlaylists{ result in
+            switch result{
+            case .success(let model):
+                break //for now
+            case .failure(let error):
+                break // fpr now
+            }
+        }
     }
     
     

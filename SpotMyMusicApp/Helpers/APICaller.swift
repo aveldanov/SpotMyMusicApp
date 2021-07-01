@@ -32,9 +32,9 @@ final class APICaller {
                     completion(.failure(APIError.failedToGetData))
                     return
                 }
-   
+                
                 do{
-//                    let result = try JSONSerialization.jsonObject(with: data, options: .allowFragments) // needed before model is created
+                    //                    let result = try JSONSerialization.jsonObject(with: data, options: .allowFragments) // needed before model is created
                     
                     let result = try JSONDecoder().decode(UserProfile.self, from: data)
                     print("[APICaller] result",result)
@@ -59,17 +59,17 @@ final class APICaller {
                     return
                 }
                 do{
-//                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-//                    print("[API Caller] json releases",json)
+                    //                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                    //                    print("[API Caller] json releases",json)
                     
                     let result = try JSONDecoder().decode(NewReleasesResponse.self, from: data)
                     
-//                print("[API Caller] get new releases", result)
+                    //                print("[API Caller] get new releases", result)
                     completion(.success(result))
                     
                 }catch{
                     print("[API Caller] get new releases", error.localizedDescription)
-
+                    
                     completion(.failure(error))
                     
                 }
@@ -83,14 +83,23 @@ final class APICaller {
     
     
     public func getFeaturedPlaylists(completion:@escaping (Result<String,Error>)->(Void)){
-        createRequest(with: URL(string: Constants.baseAPIURL+"/browse/featured-playlists"), type: .GET) { request in
+        createRequest(with: URL(string: Constants.baseAPIURL+"/browse/featured-playlists?limit=2"), type: .GET) { request in
             
             URLSession.shared.dataTask(with: request) { data, response, error in
                 guard let data = data, error == nil else{
                     return
                 }
                 
-                
+                do{
+                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                    print("[API Caller] json releases",json)
+                    
+//                    completion(.success(_))
+                    
+                }catch{
+                    print("[API Caller] get new releases", error.localizedDescription)
+                    completion(.failure(error))
+                }
                 
                 
             }.resume()
