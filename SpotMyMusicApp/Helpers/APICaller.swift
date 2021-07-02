@@ -104,35 +104,68 @@ final class APICaller {
         }
     }
     
-  // REQUIRED INPUT IS MISSING - SEE API DOC
-//    public func getRecommendations(completion:@escaping (Result<String,Error>)->(Void)){
-//        createRequest(with: URL(string: Constants.baseAPIURL + "/recommendations"), type: .GET) { request in
-//
-//            URLSession.shared.dataTask(with: request) { data, response, error in
-//                guard let data = data, error == nil else{
-//                    return
-//                }
-//
-//                do{
-////                    let result = try JSONDecoder().decode(FeaturedPlaylistResponse.self, from: data)
-//
-//                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-//                print("[API Caller] get recommendation", json)
-////                    completion(.success(result))
-//
-//                }catch{
-//                    print("[API Caller] get recommendation", error.localizedDescription)
-//                    completion(.failure(error))
-//                }
-//            }.resume()
-//
-//
-//
-//        }
-//
-//
-//    }
+    public func getRecommendations(genres: Set<String>, completion:@escaping (Result<String,Error>)->(Void)){
+        let seeds = genres.joined(separator: ",")
+        createRequest(with: URL(string: Constants.baseAPIURL + "/recommendations?seed_genres=\(seeds)"), type: .GET) { request in
+
+            URLSession.shared.dataTask(with: request) { data, response, error in
+                guard let data = data, error == nil else{
+                    return
+                }
+
+                do{
+//                    let result = try JSONDecoder().decode(FeaturedPlaylistResponse.self, from: data)
+
+                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                print("[API Caller] get recommendation", json)
+//                    completion(.success(result))
+
+                }catch{
+                    print("[API Caller] get recommendation", error.localizedDescription)
+                    completion(.failure(error))
+                }
+            }.resume()
+
+
+
+        }
+
+
+    }
     
+    
+    public func getRecommendedGenres(completion: @escaping (Result<RecommendedGenresResponse,Error>)->Void){
+        
+        createRequest(with: URL(string: Constants.baseAPIURL + "/recommendations/available-genre-seeds"), type: .GET) { request in
+            
+            URLSession.shared.dataTask(with: request) { data, response, error in
+                guard let data = data, error == nil else{
+                    return
+                }
+                
+                do{
+                    let result = try JSONDecoder().decode(RecommendedGenresResponse.self, from: data)
+
+
+                    
+//                print("[API Caller] get recom genres", result)
+                    completion(.success(result))
+                    
+                }catch{
+                    print("[API Caller] get recom genres", error.localizedDescription)
+                    completion(.failure(error))
+                }
+            }.resume()
+            
+            
+            
+            
+            
+            
+        }
+        
+        
+    }
     
     
      //MARK: Private
