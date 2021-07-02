@@ -39,6 +39,17 @@ class HomeViewController: UIViewController {
                 break // fpr now
             }
         }
+        
+        
+        APICaller.shared.getRecommendations{ result in
+            switch result{
+            case .success(let model):
+                break //for now
+            case .failure(let error):
+                break // fpr now
+            }
+        }
+
     }
     
     

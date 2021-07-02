@@ -82,7 +82,7 @@ final class APICaller {
     }
     
     
-    public func getFeaturedPlaylists(completion:@escaping (Result<FeaturedPlaylistResponse,Error>)->(Void)){
+    public func getFeaturedPlaylists(completion: @escaping (Result<FeaturedPlaylistResponse,Error>)->(Void)){
         createRequest(with: URL(string: Constants.baseAPIURL+"/browse/featured-playlists?limit=2"), type: .GET) { request in
             
             URLSession.shared.dataTask(with: request) { data, response, error in
@@ -93,24 +93,49 @@ final class APICaller {
                 do{
                     let result = try JSONDecoder().decode(FeaturedPlaylistResponse.self, from: data)
                     
-                print("[API Caller] get feat playlists", result)
+//                print("[API Caller] get feat playlists", result)
                     completion(.success(result))
                     
                 }catch{
-                    print("[API Caller] get new releases", error.localizedDescription)
+                    print("[API Caller] get feat playlists", error.localizedDescription)
                     completion(.failure(error))
                 }
-                
-                
             }.resume()
-            
-            
         }
-        
-        
     }
     
+  // REQUIRED INPUT IS MISSING - SEE API DOC
+//    public func getRecommendations(completion:@escaping (Result<String,Error>)->(Void)){
+//        createRequest(with: URL(string: Constants.baseAPIURL + "/recommendations"), type: .GET) { request in
+//
+//            URLSession.shared.dataTask(with: request) { data, response, error in
+//                guard let data = data, error == nil else{
+//                    return
+//                }
+//
+//                do{
+////                    let result = try JSONDecoder().decode(FeaturedPlaylistResponse.self, from: data)
+//
+//                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+//                print("[API Caller] get recommendation", json)
+////                    completion(.success(result))
+//
+//                }catch{
+//                    print("[API Caller] get recommendation", error.localizedDescription)
+//                    completion(.failure(error))
+//                }
+//            }.resume()
+//
+//
+//
+//        }
+//
+//
+//    }
     
+    
+    
+     //MARK: Private
     
     enum HttpMethod: String{
         case GET
