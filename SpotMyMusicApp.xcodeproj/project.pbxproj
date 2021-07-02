@@ -36,6 +36,7 @@
 		21DE1F2F268D7AA700B70D08 /* APIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DE1F2E268D7AA700B70D08 /* APIImage.swift */; };
 		21DE1F31268D8BA000B70D08 /* FeaturedPlaylistResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DE1F30268D8BA000B70D08 /* FeaturedPlaylistResponse.swift */; };
 		21DE1F33268EB40400B70D08 /* RecommendedGenresResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DE1F32268EB40400B70D08 /* RecommendedGenresResponse.swift */; };
+		21DE1F35268EC31500B70D08 /* RecommendationsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DE1F34268EC31500B70D08 /* RecommendationsResponse.swift */; };
 		BC7A2F34223407F0148DD340 /* Pods_SpotMyMusicApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D91F356178C339228501AE /* Pods_SpotMyMusicApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		21DE1F2E268D7AA700B70D08 /* APIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIImage.swift; sourceTree = "<group>"; };
 		21DE1F30268D8BA000B70D08 /* FeaturedPlaylistResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedPlaylistResponse.swift; sourceTree = "<group>"; };
 		21DE1F32268EB40400B70D08 /* RecommendedGenresResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedGenresResponse.swift; sourceTree = "<group>"; };
+		21DE1F34268EC31500B70D08 /* RecommendationsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsResponse.swift; sourceTree = "<group>"; };
 		23D91F356178C339228501AE /* Pods_SpotMyMusicApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpotMyMusicApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA36359E302A5409914D610D /* Pods-SpotMyMusicApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotMyMusicApp.release.xcconfig"; path = "Target Support Files/Pods-SpotMyMusicApp/Pods-SpotMyMusicApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,6 +145,7 @@
 				215623E82687C8B800EA36F4 /* Playlist.swift */,
 				21DE1F2C268D789100B70D08 /* NewReleasesResponse.swift */,
 				21DE1F32268EB40400B70D08 /* RecommendedGenresResponse.swift */,
+				21DE1F34268EC31500B70D08 /* RecommendationsResponse.swift */,
 				21DE1F30268D8BA000B70D08 /* FeaturedPlaylistResponse.swift */,
 				21DE1F2E268D7AA700B70D08 /* APIImage.swift */,
 				215623EA2687C8C300EA36F4 /* AudioTrack.swift */,
@@ -348,6 +351,7 @@
 				215623DB2687C80B00EA36F4 /* ProfileViewController.swift in Sources */,
 				215623CD2687C74800EA36F4 /* TabBarViewController.swift in Sources */,
 				2156244026896DD100EA36F4 /* Settings.swift in Sources */,
+				21DE1F35268EC31500B70D08 /* RecommendationsResponse.swift in Sources */,
 				21DE1F2D268D789100B70D08 /* NewReleasesResponse.swift in Sources */,
 				21562413268800F400EA36F4 /* AuthResponse.swift in Sources */,
 				215623EB2687C8C300EA36F4 /* AudioTrack.swift in Sources */,
