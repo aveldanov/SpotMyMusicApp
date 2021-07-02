@@ -25,7 +25,6 @@ final class AuthManager{
     private init(){}
     
     public var signInURL: URL?{
-        
         let baseURLSting = "https://accounts.spotify.com/authorize"
         let urlString = "\(baseURLSting)?response_type=code&client_id=\(Constants.clientID)&scope=\(Constants.scope)&redirect_uri=\(Constants.redirectURI)&show_dialog=TRUE"
         return URL(string: urlString)
@@ -94,13 +93,9 @@ final class AuthManager{
             do{
                 let result = try JSONDecoder().decode(AuthResponse.self, from: data)
                 self.cacheToken(result: result)
-                
-                print("SUCCESS",result)
-                
+                print("[AuthManager] SUCCESS",result)
                 completion(true)
-                
             }catch{
-                
                 print("URL Session Failure",error.localizedDescription)
                 completion(false)
             }
@@ -118,7 +113,6 @@ final class AuthManager{
         guard !refreshingToken else {
             //append the completion...to wait
             onRefreshBlocks.append(completion)
-            
             return
         }
         
@@ -144,7 +138,7 @@ final class AuthManager{
             return
         }
         
-
+        
         // comment for forced refresh - testing
         guard shouldRefreshToken else {
             completion?(true)
@@ -218,8 +212,8 @@ final class AuthManager{
     public func cacheToken(result: AuthResponse){
         UserDefaults.standard.setValue(result.access_token, forKey: "access_token")
         // cash only if refreshed
-        if let refresh_toker = result.refresh_token{
-            UserDefaults.standard.setValue(result.refresh_token, forKey: "refresh_token")
+        if let refresh_token = result.refresh_token{
+            UserDefaults.standard.setValue(refresh_token, forKey: "refresh_token")
         }
         // time logged in + when its expires
         UserDefaults.standard.setValue(Date().addingTimeInterval(TimeInterval(result.expires_in)), forKey: "expirationDate")

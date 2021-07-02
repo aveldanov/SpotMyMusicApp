@@ -46,7 +46,8 @@ class HomeViewController: UIViewController {
             case .success(let model):
                 let genres = model.genres
                 var seeds = Set<String>()
-                while seeds.count <= 5 {
+                //up to 5 seeds per API Doc
+                while seeds.count < 5 {
                     if let random = genres.randomElement(){
                         seeds.insert(random)
                     }
