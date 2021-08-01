@@ -123,11 +123,11 @@
 		21CEEC6C26B6D5CE0085F199 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				21CEEC9A26B75C200085F199 /* AuthResponse.swift */,
 				21CEEC9026B6D9900085F199 /* Playlist.swift */,
 				21CEEC9226B6D9AE0085F199 /* AudioTrack.swift */,
 				21CEEC9426B6D9BE0085F199 /* Artist.swift */,
 				21CEEC9626B6D9CA0085F199 /* UserProfile.swift */,
-				21CEEC9A26B75C200085F199 /* AuthResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
