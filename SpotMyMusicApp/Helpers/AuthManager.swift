@@ -66,7 +66,7 @@ final class AuthManager{
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/x-www-form-urlencoded ", forHTTPHeaderField: "Content-Type")
         request.httpBody = components.query?.data(using: .utf8)
         
         let basicToken = Constants.clientID + ":" + Constants.clientSecret
@@ -77,8 +77,11 @@ final class AuthManager{
             return
         }
         
-        request.setValue("Authorization", forHTTPHeaderField: "Basic \(base64String)")
+        request.setValue("Basic \(base64String)", forHTTPHeaderField: "Authorization")
+        print("BASE",base64String)
         
+        
+        // API request
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else{
@@ -87,8 +90,14 @@ final class AuthManager{
             }
             
             do{
-                let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                print("SUCCESS",json)
+//                let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                
+                let result = try JSONDecoder().decode(AuthResponse.self, from: data)
+                self.cacheToken(result: result)
+                
+//                print("SUCCESS", json)
+                completion(true)
+
             }catch{
                 print(error.localizedDescription)
                 completion(false)
@@ -104,7 +113,8 @@ final class AuthManager{
         
     }
     
-    public func cacheToken(){
+    public func cacheToken(result: AuthResponse){
+        UserDefaults.standard.setValue(result.access_token, forKey: "access_token")
         
     }
     

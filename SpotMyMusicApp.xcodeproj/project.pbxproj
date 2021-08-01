@@ -30,6 +30,7 @@
 		21CEEC9526B6D9BE0085F199 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CEEC9426B6D9BE0085F199 /* Artist.swift */; };
 		21CEEC9726B6D9CA0085F199 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CEEC9626B6D9CA0085F199 /* UserProfile.swift */; };
 		21CEEC9926B6E5F30085F199 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CEEC9826B6E5F30085F199 /* Extensions.swift */; };
+		21CEEC9B26B75C200085F199 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CEEC9A26B75C200085F199 /* AuthResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		21CEEC9426B6D9BE0085F199 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		21CEEC9626B6D9CA0085F199 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		21CEEC9826B6E5F30085F199 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		21CEEC9A26B75C200085F199 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				21CEEC9226B6D9AE0085F199 /* AudioTrack.swift */,
 				21CEEC9426B6D9BE0085F199 /* Artist.swift */,
 				21CEEC9626B6D9CA0085F199 /* UserProfile.swift */,
+				21CEEC9A26B75C200085F199 /* AuthResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				21CEEC9526B6D9BE0085F199 /* Artist.swift in Sources */,
 				21CEEC8726B6D9030085F199 /* PlaylistViewController.swift in Sources */,
 				21CEEC5926B6D5340085F199 /* SceneDelegate.swift in Sources */,
+				21CEEC9B26B75C200085F199 /* AuthResponse.swift in Sources */,
 				21CEEC8526B6D8F60085F199 /* PlayerViewController.swift in Sources */,
 				21CEEC8D26B6D95D0085F199 /* APICaller.swift in Sources */,
 				21CEEC8126B6D8E00085F199 /* SettingsViewController.swift in Sources */,
