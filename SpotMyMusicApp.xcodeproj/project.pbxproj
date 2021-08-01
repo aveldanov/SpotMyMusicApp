@@ -22,6 +22,13 @@
 		21CEEC8526B6D8F60085F199 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CEEC8426B6D8F60085F199 /* PlayerViewController.swift */; };
 		21CEEC8726B6D9030085F199 /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CEEC8626B6D9030085F199 /* PlaylistViewController.swift */; };
 		21CEEC8926B6D91C0085F199 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CEEC8826B6D91C0085F199 /* SearchResultsViewController.swift */; };
+		21CEEC8B26B6D94D0085F199 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CEEC8A26B6D94D0085F199 /* AuthManager.swift */; };
+		21CEEC8D26B6D95D0085F199 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CEEC8C26B6D95D0085F199 /* APICaller.swift */; };
+		21CEEC8F26B6D96F0085F199 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CEEC8E26B6D96F0085F199 /* HapticsManager.swift */; };
+		21CEEC9126B6D9900085F199 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CEEC9026B6D9900085F199 /* Playlist.swift */; };
+		21CEEC9326B6D9AE0085F199 /* AudioTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CEEC9226B6D9AE0085F199 /* AudioTrack.swift */; };
+		21CEEC9526B6D9BE0085F199 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CEEC9426B6D9BE0085F199 /* Artist.swift */; };
+		21CEEC9726B6D9CA0085F199 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CEEC9626B6D9CA0085F199 /* UserProfile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +49,13 @@
 		21CEEC8426B6D8F60085F199 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		21CEEC8626B6D9030085F199 /* PlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
 		21CEEC8826B6D91C0085F199 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
+		21CEEC8A26B6D94D0085F199 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		21CEEC8C26B6D95D0085F199 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		21CEEC8E26B6D96F0085F199 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
+		21CEEC9026B6D9900085F199 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
+		21CEEC9226B6D9AE0085F199 /* AudioTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTrack.swift; sourceTree = "<group>"; };
+		21CEEC9426B6D9BE0085F199 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		21CEEC9626B6D9CA0085F199 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +119,10 @@
 		21CEEC6C26B6D5CE0085F199 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				21CEEC9026B6D9900085F199 /* Playlist.swift */,
+				21CEEC9226B6D9AE0085F199 /* AudioTrack.swift */,
+				21CEEC9426B6D9BE0085F199 /* Artist.swift */,
+				21CEEC9626B6D9CA0085F199 /* UserProfile.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -119,6 +137,9 @@
 		21CEEC6E26B6D5E70085F199 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				21CEEC8A26B6D94D0085F199 /* AuthManager.swift */,
+				21CEEC8C26B6D95D0085F199 /* APICaller.swift */,
+				21CEEC8E26B6D96F0085F199 /* HapticsManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -136,8 +157,8 @@
 		21CEEC7A26B6D8950085F199 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				21CEEC5A26B6D5340085F199 /* HomeViewController.swift */,
 				21CEEC7426B6D8520085F199 /* TabBarViewController.swift */,
+				21CEEC5A26B6D5340085F199 /* HomeViewController.swift */,
 				21CEEC7626B6D8780085F199 /* SearchViewController.swift */,
 				21CEEC7826B6D8840085F199 /* LibraryViewController.swift */,
 			);
@@ -228,17 +249,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				21CEEC7726B6D8780085F199 /* SearchViewController.swift in Sources */,
+				21CEEC9126B6D9900085F199 /* Playlist.swift in Sources */,
+				21CEEC8B26B6D94D0085F199 /* AuthManager.swift in Sources */,
 				21CEEC8926B6D91C0085F199 /* SearchResultsViewController.swift in Sources */,
 				21CEEC7F26B6D8D30085F199 /* WelcomeViewController.swift in Sources */,
 				21CEEC8326B6D8EA0085F199 /* ProfileViewController.swift in Sources */,
 				21CEEC7526B6D8520085F199 /* TabBarViewController.swift in Sources */,
+				21CEEC8F26B6D96F0085F199 /* HapticsManager.swift in Sources */,
+				21CEEC9326B6D9AE0085F199 /* AudioTrack.swift in Sources */,
 				21CEEC5B26B6D5340085F199 /* HomeViewController.swift in Sources */,
 				21CEEC7C26B6D8B10085F199 /* AuthViewController.swift in Sources */,
 				21CEEC5726B6D5340085F199 /* AppDelegate.swift in Sources */,
+				21CEEC9726B6D9CA0085F199 /* UserProfile.swift in Sources */,
 				21CEEC7926B6D8840085F199 /* LibraryViewController.swift in Sources */,
+				21CEEC9526B6D9BE0085F199 /* Artist.swift in Sources */,
 				21CEEC8726B6D9030085F199 /* PlaylistViewController.swift in Sources */,
 				21CEEC5926B6D5340085F199 /* SceneDelegate.swift in Sources */,
 				21CEEC8526B6D8F60085F199 /* PlayerViewController.swift in Sources */,
+				21CEEC8D26B6D95D0085F199 /* APICaller.swift in Sources */,
 				21CEEC8126B6D8E00085F199 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
