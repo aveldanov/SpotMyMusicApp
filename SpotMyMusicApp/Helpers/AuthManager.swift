@@ -30,11 +30,11 @@ final class AuthManager{
     }
     
     var isSignedIn: Bool{
-        return false
+        return accessToken != nil
     }
     
     private var accessToken: String?{
-        return nil
+        return UserDefaults.standard.string(forKey: "access_token")
     }
     
     private var refreshToken: String?{
@@ -115,7 +115,9 @@ final class AuthManager{
     
     public func cacheToken(result: AuthResponse){
         UserDefaults.standard.setValue(result.access_token, forKey: "access_token")
-        
+        UserDefaults.standard.setValue(result.refresh_token, forKey: "refresh_token")
+        UserDefaults.standard.setValue(Date().addingTimeInterval(TimeInterval(result.expires_in)  ), forKey: "expirationDate")
+
     }
     
     
