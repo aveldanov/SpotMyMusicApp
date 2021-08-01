@@ -57,8 +57,28 @@ final class AuthManager{
             return
         }
         
+        var components = URLComponents()
+        components.queryItems = [
+            URLQueryItem(name: "grant_type", value: "authorization_code"),
+            URLQueryItem(name: "code", value: code),
+            URLQueryItem(name: "redirect_uri", value: "https://www.intuit.com/")
+        ]
+        
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.httpBody = components.query?.data(using: .utf8)
+        
+        let basicToken = Constants.clientID + ":" + Constants.clientSecret
+        let data = basicToken.data(using: .utf8)
+        guard let base64String = data?.base64EncodedString() else{
+            completion(false)
+            print("Error getting base64")
+            return
+        }
+        
+        request.setValue("Authorization", forHTTPHeaderField: "Basic \(base64String)")
+        
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else{
