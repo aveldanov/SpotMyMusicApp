@@ -29,6 +29,7 @@
 		21CEEC9326B6D9AE0085F199 /* AudioTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CEEC9226B6D9AE0085F199 /* AudioTrack.swift */; };
 		21CEEC9526B6D9BE0085F199 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CEEC9426B6D9BE0085F199 /* Artist.swift */; };
 		21CEEC9726B6D9CA0085F199 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CEEC9626B6D9CA0085F199 /* UserProfile.swift */; };
+		21CEEC9926B6E5F30085F199 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CEEC9826B6E5F30085F199 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		21CEEC9226B6D9AE0085F199 /* AudioTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTrack.swift; sourceTree = "<group>"; };
 		21CEEC9426B6D9BE0085F199 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		21CEEC9626B6D9CA0085F199 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		21CEEC9826B6E5F30085F199 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				21CEEC5626B6D5340085F199 /* AppDelegate.swift */,
 				21CEEC5826B6D5340085F199 /* SceneDelegate.swift */,
 				21CEEC5F26B6D5350085F199 /* Assets.xcassets */,
+				21CEEC9826B6E5F30085F199 /* Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -169,11 +172,11 @@
 			isa = PBXGroup;
 			children = (
 				21CEEC7B26B6D8B10085F199 /* AuthViewController.swift */,
+				21CEEC7E26B6D8D30085F199 /* WelcomeViewController.swift */,
 				21CEEC8426B6D8F60085F199 /* PlayerViewController.swift */,
 				21CEEC8626B6D9030085F199 /* PlaylistViewController.swift */,
 				21CEEC8826B6D91C0085F199 /* SearchResultsViewController.swift */,
 				21CEEC8026B6D8E00085F199 /* SettingsViewController.swift */,
-				21CEEC7E26B6D8D30085F199 /* WelcomeViewController.swift */,
 				21CEEC8226B6D8EA0085F199 /* ProfileViewController.swift */,
 			);
 			path = Other;
@@ -261,6 +264,7 @@
 				21CEEC7C26B6D8B10085F199 /* AuthViewController.swift in Sources */,
 				21CEEC5726B6D5340085F199 /* AppDelegate.swift in Sources */,
 				21CEEC9726B6D9CA0085F199 /* UserProfile.swift in Sources */,
+				21CEEC9926B6E5F30085F199 /* Extensions.swift in Sources */,
 				21CEEC7926B6D8840085F199 /* LibraryViewController.swift in Sources */,
 				21CEEC9526B6D9BE0085F199 /* Artist.swift in Sources */,
 				21CEEC8726B6D9030085F199 /* PlaylistViewController.swift in Sources */,

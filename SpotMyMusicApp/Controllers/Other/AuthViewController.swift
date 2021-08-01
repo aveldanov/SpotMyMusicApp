@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-class AuthViewController: UIViewController {
+class AuthViewController: UIViewController, WKNavigationDelegate {
     
     //anounimouse closure
     private let webView: WKWebView = {
@@ -24,8 +24,16 @@ class AuthViewController: UIViewController {
         super.viewDidLoad()
         title = "SignIn"
         view.backgroundColor = .systemBackground
+        webView.navigationDelegate = self
+        view.addSubview(webView)
+        
     }
     
-
+    // load up URL for sign in
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        webView.frame = view.frame
+    }
 
 }
