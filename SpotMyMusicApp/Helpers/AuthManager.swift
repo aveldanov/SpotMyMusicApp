@@ -38,14 +38,16 @@ final class AuthManager{
     }
     
     private var refreshToken: String?{
-        return nil
+        return UserDefaults.standard.string(forKey: "refresh_token")
     }
     
     private var tokenExpirationDate: Date?{
-        return nil
+        return UserDefaults.standard.object(forKey: "expirationDate") as? Date
     }
     
     private var shouldRefreshToken: Bool?{
+        
+        
         return false
     }
     
