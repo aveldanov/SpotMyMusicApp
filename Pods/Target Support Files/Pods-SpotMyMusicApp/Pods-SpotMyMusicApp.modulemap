@@ -1,6 +1,0 @@
-framework module Pods_SpotMyMusicApp {
-  umbrella header "Pods-SpotMyMusicApp-umbrella.h"
-
-  export *
-  module * { export * }
-}
