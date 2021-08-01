@@ -10,7 +10,6 @@
 		21CEEC5726B6D5340085F199 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CEEC5626B6D5340085F199 /* AppDelegate.swift */; };
 		21CEEC5926B6D5340085F199 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CEEC5826B6D5340085F199 /* SceneDelegate.swift */; };
 		21CEEC5B26B6D5340085F199 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CEEC5A26B6D5340085F199 /* ViewController.swift */; };
-		21CEEC5E26B6D5340085F199 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21CEEC5C26B6D5340085F199 /* Main.storyboard */; };
 		21CEEC6026B6D5350085F199 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21CEEC5F26B6D5350085F199 /* Assets.xcassets */; };
 		21CEEC6326B6D5350085F199 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21CEEC6126B6D5350085F199 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -20,7 +19,6 @@
 		21CEEC5626B6D5340085F199 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21CEEC5826B6D5340085F199 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		21CEEC5A26B6D5340085F199 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		21CEEC5D26B6D5340085F199 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		21CEEC5F26B6D5350085F199 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21CEEC6226B6D5350085F199 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21CEEC6426B6D5350085F199 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,15 +54,62 @@
 		21CEEC5526B6D5340085F199 /* SpotMyMusicApp */ = {
 			isa = PBXGroup;
 			children = (
-				21CEEC5626B6D5340085F199 /* AppDelegate.swift */,
-				21CEEC5826B6D5340085F199 /* SceneDelegate.swift */,
-				21CEEC5A26B6D5340085F199 /* ViewController.swift */,
-				21CEEC5C26B6D5340085F199 /* Main.storyboard */,
-				21CEEC5F26B6D5350085F199 /* Assets.xcassets */,
-				21CEEC6126B6D5350085F199 /* LaunchScreen.storyboard */,
+				21CEEC6F26B6D6060085F199 /* Resources */,
+				21CEEC6E26B6D5E70085F199 /* Helpers */,
+				21CEEC6D26B6D5DA0085F199 /* ViewModels */,
+				21CEEC6C26B6D5CE0085F199 /* Models */,
+				21CEEC6B26B6D5C50085F199 /* Views */,
+				21CEEC6A26B6D5B80085F199 /* Controllers */,
 				21CEEC6426B6D5350085F199 /* Info.plist */,
 			);
 			path = SpotMyMusicApp;
+			sourceTree = "<group>";
+		};
+		21CEEC6A26B6D5B80085F199 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				21CEEC5A26B6D5340085F199 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		21CEEC6B26B6D5C50085F199 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				21CEEC6126B6D5350085F199 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		21CEEC6C26B6D5CE0085F199 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		21CEEC6D26B6D5DA0085F199 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		21CEEC6E26B6D5E70085F199 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		21CEEC6F26B6D6060085F199 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				21CEEC5626B6D5340085F199 /* AppDelegate.swift */,
+				21CEEC5826B6D5340085F199 /* SceneDelegate.swift */,
+				21CEEC5F26B6D5350085F199 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +171,6 @@
 			files = (
 				21CEEC6326B6D5350085F199 /* LaunchScreen.storyboard in Resources */,
 				21CEEC6026B6D5350085F199 /* Assets.xcassets in Resources */,
-				21CEEC5E26B6D5340085F199 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,14 +190,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		21CEEC5C26B6D5340085F199 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				21CEEC5D26B6D5340085F199 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		21CEEC6126B6D5350085F199 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
