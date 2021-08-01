@@ -26,7 +26,6 @@ class WelcomeViewController: UIViewController {
         signIntButton.addTarget(self, action: #selector(didTapSignIn), for: .touchUpInside)
     }
 
-    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         signIntButton.frame = CGRect(
@@ -40,8 +39,22 @@ class WelcomeViewController: UIViewController {
     
     @objc func didTapSignIn(){
         let vc = AuthViewController()
+        // weak self to prevent memory leak
+        vc.completionHandler = {[weak self] success in
+            DispatchQueue.main.async {
+                self?.handleSignIn(success: success)
+            }
+        }
+
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+    
+    private func handleSignIn(success: Bool){
+        // Log user in or yell for error
+        
         
     }
 

@@ -20,6 +20,10 @@ class AuthViewController: UIViewController, WKNavigationDelegate {
         return webView
     }()
     
+    
+    // to flag when sign in is over
+    public var completionHandler: ((Bool)->Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "SignIn"
