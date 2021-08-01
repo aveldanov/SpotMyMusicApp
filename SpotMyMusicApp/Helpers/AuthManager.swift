@@ -66,6 +66,15 @@ final class AuthManager{
                 return
             }
             
+            do{
+                let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                print("SUCCESS",json)
+            }catch{
+                print(error.localizedDescription)
+                completion(false)
+                
+            }
+            
             
         }.resume()
         
