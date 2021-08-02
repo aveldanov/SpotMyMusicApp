@@ -15,6 +15,10 @@ final class AuthManager{
         static let clientID = "cab2989e12fa45e69f28440e52f53172"
         static let clientSecret = "67a4973e4394471a86ca3da29a4a4734"
         static let tokenAPIURL = "https://accounts.spotify.com/api/token"
+        static let redirectURI = "https://www.intuit.com/"
+        static let scopes = "user-read-private%20playlist-modify-public%20playlist-read-private%20playlist-modify-private%20user-follow-read%20user-library-modify%20user-library-read%20user-read-email"
+
+
     }
     
     
@@ -22,10 +26,8 @@ final class AuthManager{
     
     
     public var signInURL: URL?{
-        let scopes = "user-read-private"
-        let redirectURI = "https://www.intuit.com/"
         let baseURL = "https://accounts.spotify.com/authorize"
-        let stringURL = "\(baseURL)?response_type=code&client_id=\(Constants.clientID)&scope=\(scopes)&redirect_uri=\(redirectURI)&show_dialog=TRUE"
+        let stringURL = "\(baseURL)?response_type=code&client_id=\(Constants.clientID)&scope=\(Constants.scopes)&redirect_uri=\(Constants.redirectURI)&show_dialog=TRUE"
         return URL(string: stringURL)
     }
     
@@ -68,7 +70,7 @@ final class AuthManager{
         components.queryItems = [
             URLQueryItem(name: "grant_type", value: "authorization_code"),
             URLQueryItem(name: "code", value: code),
-            URLQueryItem(name: "redirect_uri", value: "https://www.intuit.com/")
+            URLQueryItem(name: "redirect_uri", value: Constants.redirectURI)
         ]
         
         var request = URLRequest(url: url)
@@ -117,12 +119,11 @@ final class AuthManager{
     }
     
     public func refreshTokenIfNeeded(completion: @escaping ((Bool)->Void)){
-        guard let shouldRefresh = shouldRefreshToken else {
-            completion(true)
-            return
-        }
+//        guard let shouldRefresh = shouldRefreshToken else {
+//            completion(true)
+//            return
+//        }
         guard let refreshToken = self.refreshToken else {
-            
             return
         }
         

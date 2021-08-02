@@ -27,6 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.makeKeyAndVisible()
         self.window = window
 //        print(AuthManager.shared.signInURL?.absoluteString)
+//        AuthManager.shared.refreshTokenIfNeeded { success in
+//            print("[AppDelegate] refresh success",success)
+//        }
         return true
     }
 
