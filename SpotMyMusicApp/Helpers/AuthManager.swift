@@ -11,14 +11,16 @@ import Foundation
 final class AuthManager{
     static let shared = AuthManager()
     
+    private var refreshingToken = false
+    
     struct Constants {
         static let clientID = "cab2989e12fa45e69f28440e52f53172"
         static let clientSecret = "67a4973e4394471a86ca3da29a4a4734"
         static let tokenAPIURL = "https://accounts.spotify.com/api/token"
         static let redirectURI = "https://www.intuit.com/"
         static let scopes = "user-read-private%20playlist-modify-public%20playlist-read-private%20playlist-modify-private%20user-follow-read%20user-library-modify%20user-library-read%20user-read-email"
-
-
+        
+        
     }
     
     
@@ -47,7 +49,7 @@ final class AuthManager{
         return UserDefaults.standard.object(forKey: "expirationDate") as? Date
     }
     
-    private var shouldRefreshToken: Bool?{
+    private var shouldRefreshToken: Bool{
         guard let expirationDate = tokenExpirationDate else {
             return false
         }
@@ -99,14 +101,14 @@ final class AuthManager{
             }
             
             do{
-//                let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                //                let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
                 
                 let result = try JSONDecoder().decode(AuthResponse.self, from: data)
                 self.cacheToken(result: result)
                 
-//                print("SUCCESS", json)
+                //                print("SUCCESS", json)
                 completion(true)
-
+                
             }catch{
                 print(error.localizedDescription)
                 completion(false)
@@ -118,20 +120,49 @@ final class AuthManager{
         
     }
     
+    //array of escaping closures
+    private var onRefreshBlocks = [(String)->Void]()
+    
+    // Supplies a valid token with API calls
+    public func withValidToken(completion: @escaping (String)->Void){
+        guard !refreshingToken else {
+            // Append the completion to check for redundunt refresh calls
+            onRefreshBlocks.append(completion)
+            return
+        }
+        
+        if shouldRefreshToken{
+            //refresh
+            refreshTokenIfNeeded { success in
+                if let token = self.accessToken, success{
+                    completion(token)
+                }
+            }
+        }else if let token = accessToken{
+            completion(token)
+        }
+    }
+    
     public func refreshTokenIfNeeded(completion: @escaping ((Bool)->Void)){
-//        guard let shouldRefresh = shouldRefreshToken else {
-//            completion(true)
-//            return
-//        }
+        // prevents from refreshing in case refreshing is already in progress
+        guard !refreshingToken else {
+            return
+        }
+        guard shouldRefreshToken else {
+            completion(true)
+            return
+        }
         guard let refreshToken = self.refreshToken else {
             return
         }
         
-         //MARK: Refresh the token
+        //MARK: Refresh the token
         
         guard let url = URL(string: Constants.tokenAPIURL) else {
             return
         }
+        
+        refreshingToken = true
         
         var components = URLComponents()
         components.queryItems = [
@@ -159,21 +190,25 @@ final class AuthManager{
         // API request
         
         URLSession.shared.dataTask(with: request) { data, response, error in
+            self.refreshingToken = false
+            
             guard let data = data, error == nil else{
                 completion(false)
                 return
             }
             
             do{
-
+                
                 
                 let result = try JSONDecoder().decode(AuthResponse.self, from: data)
-                print("Successfully refreshed")
+                print("Successfully refreshed", result)
+                self.onRefreshBlocks.forEach{$0(result.access_token)}
+                self.onRefreshBlocks.removeAll()
                 self.cacheToken(result: result)
                 
-//                print("SUCCESS", json)
+                //                print("SUCCESS", json)
                 completion(true)
-
+                
             }catch{
                 print(error.localizedDescription)
                 completion(false)
@@ -190,9 +225,9 @@ final class AuthManager{
         if let refresh_token = result.refresh_token{
             UserDefaults.standard.setValue(result.refresh_token, forKey: "refresh_token")
         }
-
+        
         UserDefaults.standard.setValue(Date().addingTimeInterval(TimeInterval(result.expires_in)  ), forKey: "expirationDate")
-
+        
     }
     
     
