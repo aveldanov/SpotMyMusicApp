@@ -12,19 +12,40 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
-        
         return tableView
     }()
     
+    private var sections = [Section]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureModels()
         title = "Settings"
         view.backgroundColor = .systemBackground
         view.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    
+    private func configureModels(){
+        sections.append(Section(title: "Profile", options: [Option(title: "View Your Profile", handler: {[weak self] in
+            DispatchQueue.main.async {
+                self?.viewProfile()
+            }
+        })]))
+        
+        sections.append(Section(title: "Profile", options: [Option(title: "View Your Profile", handler: {[weak self] in
+            DispatchQueue.main.async {
+                self?.viewProfile()
+            }
+        })]))
+    }
+    
+    private func viewProfile(){
+        let vc = ProfileViewController()
+        vc.title = "Profile"
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     
@@ -35,7 +56,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     
-     //MARK: TableView
+    //MARK: TableView
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -58,6 +79,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.deselectRow(at: indexPath, animated: true)
         
         // call handler for the cell
+        
+        
+        
     }
     
 }
