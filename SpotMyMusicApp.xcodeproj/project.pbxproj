@@ -123,11 +123,11 @@
 		21CEEC6C26B6D5CE0085F199 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				21CEEC9626B6D9CA0085F199 /* UserProfile.swift */,
 				21CEEC9A26B75C200085F199 /* AuthResponse.swift */,
 				21CEEC9026B6D9900085F199 /* Playlist.swift */,
 				21CEEC9226B6D9AE0085F199 /* AudioTrack.swift */,
 				21CEEC9426B6D9BE0085F199 /* Artist.swift */,
-				21CEEC9626B6D9CA0085F199 /* UserProfile.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -176,11 +176,11 @@
 			children = (
 				21CEEC7B26B6D8B10085F199 /* AuthViewController.swift */,
 				21CEEC7E26B6D8D30085F199 /* WelcomeViewController.swift */,
+				21CEEC8226B6D8EA0085F199 /* ProfileViewController.swift */,
 				21CEEC8426B6D8F60085F199 /* PlayerViewController.swift */,
 				21CEEC8626B6D9030085F199 /* PlaylistViewController.swift */,
 				21CEEC8826B6D91C0085F199 /* SearchResultsViewController.swift */,
 				21CEEC8026B6D8E00085F199 /* SettingsViewController.swift */,
-				21CEEC8226B6D8EA0085F199 /* ProfileViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
