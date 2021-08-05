@@ -9,10 +9,20 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    
+    private let tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        
+        return tableView
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        title = "Settings"
+        view.backgroundColor = .systemBackground
     }
     
 

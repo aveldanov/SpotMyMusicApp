@@ -176,11 +176,11 @@
 			children = (
 				21CEEC7B26B6D8B10085F199 /* AuthViewController.swift */,
 				21CEEC7E26B6D8D30085F199 /* WelcomeViewController.swift */,
+				21CEEC8026B6D8E00085F199 /* SettingsViewController.swift */,
 				21CEEC8226B6D8EA0085F199 /* ProfileViewController.swift */,
 				21CEEC8426B6D8F60085F199 /* PlayerViewController.swift */,
 				21CEEC8626B6D9030085F199 /* PlaylistViewController.swift */,
 				21CEEC8826B6D91C0085F199 /* SearchResultsViewController.swift */,
-				21CEEC8026B6D8E00085F199 /* SettingsViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
