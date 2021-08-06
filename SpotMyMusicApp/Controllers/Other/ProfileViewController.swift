@@ -83,15 +83,15 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
      //MARK: tableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return models.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {
             fatalError("No Cell")
         }
         cell.selectionStyle = .none
-        cell.textLabel?.text = "FOO"
+        cell.textLabel?.text = models[indexPath.row]
         
         return cell
     }
