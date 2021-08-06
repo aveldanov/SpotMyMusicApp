@@ -34,9 +34,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             }
         })]))
         
-        sections.append(Section(title: "Profile", options: [Option(title: "View Your Profile", handler: {[weak self] in
+        sections.append(Section(title: "Account", options: [Option(title: "Sign Out", handler: {[weak self] in
             DispatchQueue.main.async {
-                self?.viewProfile()
+                self?.signOutTapped()
             }
         })]))
     }
@@ -49,6 +49,14 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     
+    private func signOutTapped(){
+        
+        
+        
+    }
+    
+
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
@@ -59,18 +67,19 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     //MARK: TableView
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return sections.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return sections[section].options.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {
             fatalError("No Cell")
         }
-        cell.textLabel?.text = "foo"
+        let model = sections[indexPath.section].options[indexPath.row]
+        cell.textLabel?.text = model.title
         return cell
     }
     
@@ -79,9 +88,14 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.deselectRow(at: indexPath, animated: true)
         
         // call handler for the cell
-        
-        
+        let model = sections[indexPath.section].options[indexPath.row]
+        model.handler()
         
     }
     
+    // adds uppercase title to sections
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let model = sections[section]
+        return model.title
+    }
 }
