@@ -19,10 +19,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     private var models = [String]()
     
     
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Profile"
@@ -47,7 +43,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             DispatchQueue.main.async {
                 switch result{
                 case .success(let model):
-                    break
+                    self.updateUI(with: model)
                 case .failure(let error):
                     print(error.localizedDescription)
                     self.failedToGetProfile()
@@ -59,10 +55,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     private func updateUI(with model: UserProfile){
         tableView.isHidden = false
         // configure table models
-        models.append("Full name:\(model.display_name)")
-        models.append("Email:\(model.email)")
-        models.append("UserID:\(model.id)")
-        models.append("Plan:\(model.product)")
+        models.append("Full name: \(model.display_name)")
+        models.append("Email: \(model.email)")
+        models.append("UserID: \(model.id)")
+        models.append("Plan: \(model.product)")
         
         tableView.reloadData()
     }
@@ -92,7 +88,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         cell.selectionStyle = .none
         cell.textLabel?.text = models[indexPath.row]
-        
         return cell
     }
     
