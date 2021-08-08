@@ -7,6 +7,12 @@
 
 import UIKit
 
+enum BrowserSectionType{
+    case newReleases
+    case featuredPlaylists
+    case recommendedTracks
+}
+
 class HomeViewController: UIViewController {
     
     private var collecitonView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewCompositionalLayout { sectionIndex, environment in
@@ -34,9 +40,10 @@ class HomeViewController: UIViewController {
             action: #selector(didTapSettings))
         
         // environment - iPad, iPhone etc - ignoring for now
-        view.addSubview(spinner)
         
         configureCollectionView()
+        view.addSubview(spinner)
+
         fetchData()
     }
     
@@ -55,32 +62,42 @@ class HomeViewController: UIViewController {
     }
     
     private static func createSectionLayout(section: Int) -> NSCollectionLayoutSection{
-        // Create Item
+        //1. Create Item
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
                 heightDimension: .fractionalHeight(1.0))
         )
+        // space between items
+        item.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
         
-        // Put in the Group
+        //2. Put in the Group
         
-        let group = NSCollectionLayoutGroup.vertical(
-            layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(120)),
+        //Vertical group inside of a horizontal group
+        let verticalGroup = NSCollectionLayoutGroup.vertical(
+            layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(390)),
             subitem: item,
+            count: 3)
+        
+        
+        
+        let horizontalGroup = NSCollectionLayoutGroup.horizontal(
+            layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .absolute(390)),
+            subitem: verticalGroup,
             count: 1)
         
-        // Section
+        //3. Section
         
-        let section = NSCollectionLayoutSection(group: group)
-        
+        let section = NSCollectionLayoutSection(group: horizontalGroup)
+        section.orthogonalScrollingBehavior = .continuous
         return section
     }
     
     
     private func fetchData(){
+        // Get New Releases
         // Featured Playlists
         // Recommended Tracks
-        // Get New Releases
         
         
         //        APICaller.shared.getNewReleases { result in
