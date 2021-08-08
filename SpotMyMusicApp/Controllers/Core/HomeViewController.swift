@@ -25,10 +25,6 @@ class HomeViewController: UIViewController {
         vc.title = "Settings"
         navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
-        
-        
     }
-
-
 }
 
