@@ -23,14 +23,54 @@ class HomeViewController: UIViewController {
     
     
     private func fetchData(){
-        APICaller.shared.getNewReleases { result in
+//        APICaller.shared.getNewReleases { result in
+//            switch result{
+//            case .success(let model):
+//                break
+//            case .failure(let error):
+//                break
+//            }
+//        }
+        
+        
+//        APICaller.shared.getFeaturedPlaylist() { result in
+//            switch result{
+//            case .success(let model):
+//                break
+//            case .failure(let error):
+//                break
+//            }
+//        }
+        
+//        APICaller.shared.getRecommendations() { _ in
+//      
+//        }
+        
+        APICaller.shared.getRecommendedGenres { result in
             switch result{
             case .success(let model):
-                break
-            case .failure(let error):
-                break
+                let genres = model.genres
+                var seeds = Set<String>()
+                
+                while seeds.count < 5 {
+                    if let random = genres.randomElement(){
+                        seeds.insert(random)
+                    }
+                }
+                
+                APICaller.shared.getRecommendations(genres: seeds) { result in
+                    
+                }
+                
+                
+            case .failure(let error): break
+            
+            
+            
             }
         }
+        
+
         
     }
     
