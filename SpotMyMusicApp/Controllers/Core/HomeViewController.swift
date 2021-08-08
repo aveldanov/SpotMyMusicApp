@@ -63,7 +63,7 @@ class HomeViewController: UIViewController {
     
     private static func createSectionLayout(section: Int) -> NSCollectionLayoutSection{
         switch section {
-        case 1:
+        case 0:
             //1. Create Item
             let item = NSCollectionLayoutItem(
                 layoutSize: NSCollectionLayoutSize(
@@ -81,6 +81,34 @@ class HomeViewController: UIViewController {
                 count: 3)
             let horizontalGroup = NSCollectionLayoutGroup.horizontal(
                 layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .absolute(390)),
+                subitem: verticalGroup,
+                count: 1)
+            
+            //3. Section
+            
+            let section = NSCollectionLayoutSection(group: horizontalGroup)
+            section.orthogonalScrollingBehavior = .groupPaging
+            return section
+            
+        case 1:
+            //1. Create Item
+            let item = NSCollectionLayoutItem(
+                layoutSize: NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1.0),
+                    heightDimension: .fractionalHeight(1.0))
+            )
+            // space between items
+            item.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
+            
+            //2. Put in the Group
+            //Vertical group inside of a horizontal group
+            let verticalGroup = NSCollectionLayoutGroup.vertical(
+                layoutSize: NSCollectionLayoutSize(widthDimension: .absolute(250), heightDimension: .absolute(250)),
+                subitem: item,
+                count: 3)
+            
+            let horizontalGroup = NSCollectionLayoutGroup.horizontal(
+                layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .absolute(250)),
                 subitem: verticalGroup,
                 count: 1)
             
@@ -101,34 +129,6 @@ class HomeViewController: UIViewController {
             item.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
             
             //2. Put in the Group
-            //Vertical group inside of a horizontal group
-            let verticalGroup = NSCollectionLayoutGroup.vertical(
-                layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(390)),
-                subitem: item,
-                count: 3)
-            
-            let horizontalGroup = NSCollectionLayoutGroup.horizontal(
-                layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .absolute(390)),
-                subitem: verticalGroup,
-                count: 1)
-            
-            //3. Section
-            
-            let section = NSCollectionLayoutSection(group: horizontalGroup)
-            section.orthogonalScrollingBehavior = .continuous
-            return section
-            
-        case 3:
-            //1. Create Item
-            let item = NSCollectionLayoutItem(
-                layoutSize: NSCollectionLayoutSize(
-                    widthDimension: .fractionalWidth(1.0),
-                    heightDimension: .fractionalHeight(1.0))
-            )
-            // space between items
-            item.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
-            
-            //2. Put in the Group
             
             //Vertical group inside of a horizontal group
             let verticalGroup = NSCollectionLayoutGroup.vertical(
@@ -144,7 +144,7 @@ class HomeViewController: UIViewController {
             //3. Section
             
             let section = NSCollectionLayoutSection(group: horizontalGroup)
-            section.orthogonalScrollingBehavior = .continuous
+            section.orthogonalScrollingBehavior = .groupPaging
             return section
             
         default:
@@ -231,7 +231,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return 5
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
