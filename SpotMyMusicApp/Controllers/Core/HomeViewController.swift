@@ -14,6 +14,14 @@ class HomeViewController: UIViewController {
         return createSectionLayout(section: sectionIndex)
     })
     
+    private let spinner: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView()
+        spinner.tintColor = .label
+        spinner.hidesWhenStopped = true
+        
+        return spinner
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,13 +34,25 @@ class HomeViewController: UIViewController {
             action: #selector(didTapSettings))
         
         // environment - iPad, iPhone etc - ignoring for now
+        view.addSubview(spinner)
         
-        let collectionView =
-            
-            
-            fetchData()
+        configureCollectionView()
+        fetchData()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        collecitonView.frame = view.bounds
+    }
+    
+    
+    private func configureCollectionView(){
+        view.addSubview(collecitonView)
+        collecitonView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collecitonView.dataSource = self
+        collecitonView.delegate = self
+        collecitonView.backgroundColor = .systemBackground
+    }
     
     private static func createSectionLayout(section: Int) -> NSCollectionLayoutSection{
         // Create Item
@@ -41,7 +61,7 @@ class HomeViewController: UIViewController {
                 widthDimension: .fractionalWidth(1.0),
                 heightDimension: .fractionalHeight(1.0))
         )
-     
+        
         // Put in the Group
         
         let group = NSCollectionLayoutGroup.vertical(
@@ -53,7 +73,7 @@ class HomeViewController: UIViewController {
         
         let section = NSCollectionLayoutSection(group: group)
         
-        
+        return section
     }
     
     
@@ -122,3 +142,19 @@ class HomeViewController: UIViewController {
     }
 }
 
+
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 20
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        
+        cell.backgroundColor = .systemPink
+        return cell
+    }
+    
+    
+    
+}
