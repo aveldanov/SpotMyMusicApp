@@ -14,7 +14,6 @@ final class APICaller{
     
     struct Constants{
        static let baseAPIURL = "https://api.spotify.com/v1"
-        
     }
     
     enum APIError: Error{
@@ -38,18 +37,40 @@ final class APICaller{
                     let result = try JSONDecoder().decode(UserProfile.self, from: data)
 //                    print(result)
                     completion(.success(result))
-                    
                 }catch{
                     print(error.localizedDescription)
                     completion(.failure(error))
                 }
-                
-                
-                
             }.resume()
         }
 
     }
+    
+    
+    public func getNewReleases(completion: @escaping (Result<String,Error>)->Void){
+        
+        createRequest(with: URL(string: Constants.baseAPIURL + "/browse/new-releases?limit=2"), type: .GET) { request in
+            
+            URLSession.shared.dataTask(with: request) { data, response, error in
+                guard let data = data, error == nil else{
+                    return
+                }
+                
+                do{
+                    let json = JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                }catch{
+                    
+                    
+                }
+                
+                
+            }.resume()
+        }
+        
+    }
+    
+    
+    
     
      //MARK: Generic request for regular API Call
     enum HTTPMethod: String{
