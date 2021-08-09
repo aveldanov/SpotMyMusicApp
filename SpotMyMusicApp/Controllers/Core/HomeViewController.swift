@@ -9,8 +9,8 @@ import UIKit
 
 enum BrowserSectionType{
     case newReleases(viewModels: [NewReleasesCellViewModel]) // 1
-    case featuredPlaylists //2
-    case recommendedTracks //3
+    case featuredPlaylists(viewModels: [NewReleasesCellViewModel]) //2
+    case recommendedTracks(viewModels: [NewReleasesCellViewModel]) //3
 }
 
 class HomeViewController: UIViewController {
@@ -27,6 +27,9 @@ class HomeViewController: UIViewController {
         
         return spinner
     }()
+    
+    
+    private var sections = [BrowserSectionType]()
     
     
     override func viewDidLoad() {
@@ -59,7 +62,7 @@ class HomeViewController: UIViewController {
         collecitonView.register(NewReleaseCollectionViewCell.self, forCellWithReuseIdentifier: NewReleaseCollectionViewCell.identifier)
         collecitonView.register(FeaturedPlaylistCollectionViewCell.self, forCellWithReuseIdentifier: FeaturedPlaylistCollectionViewCell.identifier)
         collecitonView.register(RecommendedTrackCollectionViewCell.self, forCellWithReuseIdentifier: RecommendedTrackCollectionViewCell.identifier)
-
+        
         
         
         collecitonView.dataSource = self
@@ -70,37 +73,52 @@ class HomeViewController: UIViewController {
     
     
     private func fetchData(){
-        
-        
+        // we need to wait for all API responses...DispatchGroup then
+        let group = DispatchGroup()
+        group.enter()
+        group.enter()
+        group.enter()
+
         // Get New Releases
+        
+        APICaller.shared.getNewReleases { result in
+            defer{
+                group.leave()
+            }
+            switch result{
+            case .success(let model):
+                break
+            case .failure(let error):
+                break
+            }
+        }
+        
+        
         // Featured Playlists
+        
+        APICaller.shared.getFeaturedPlaylist() { result in
+            defer{
+                group.leave()
+            }
+            switch result{
+            case .success(let model):
+                break
+            case .failure(let error):
+                break
+            }
+        }
+        
+        APICaller.shared.getRecommendations() { _ in
+            
+        }
+        
+        
         // Recommended Tracks
         
-        
-        //        APICaller.shared.getNewReleases { result in
-        //            switch result{
-        //            case .success(let model):
-        //                break
-        //            case .failure(let error):
-        //                break
-        //            }
-        //        }
-        
-        
-        //        APICaller.shared.getFeaturedPlaylist() { result in
-        //            switch result{
-        //            case .success(let model):
-        //                break
-        //            case .failure(let error):
-        //                break
-        //            }
-        //        }
-        
-        //        APICaller.shared.getRecommendations() { _ in
-        //
-        //        }
-        
         APICaller.shared.getRecommendedGenres { result in
+            defer{
+                group.leave()
+            }
             switch result{
             case .success(let model):
                 let genres = model.genres
@@ -112,13 +130,38 @@ class HomeViewController: UIViewController {
                     }
                 }
                 
-                APICaller.shared.getRecommendations(genres: seeds) { result in
-                    
+                APICaller.shared.getRecommendations(genres: seeds) { recommendedResult in
+                    defer{
+                        group.leave()
+                    }
+                    switch recommendedResult{
+                    case .success(let model):
+                        break
+                    case .failure(let error):
+                        break
+                    }
                 }
             case .failure(let error): break
             }
         }
+        // when group.enter() count == group.leave() meaning all async calls done we NOTIFY on the main thread and execute the next step
+        
+        group.notify(queue: .main) {
+            <#code#>
+        }
+        
+        
+        //Configure Models
+        sections.append(.newReleases(viewModels: []))
+        sections.append(.featuredPlaylists(viewModels: []))
+        sections.append(.recommendedTracks(viewModels: []))
+        
     }
+    
+    
+    
+    
+    
     
     @objc func didTapSettings(){
         let vc = SettingsViewController()
@@ -131,12 +174,13 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         return 5
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         
-        return 3
+        return sections.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
