@@ -78,7 +78,10 @@ class HomeViewController: UIViewController {
         group.enter()
         group.enter()
         group.enter()
-
+        
+        var newReleases: NewReleasesResponse?
+        var featuredPlaylist: FeaturedPlaylistsResponse?
+        var recommendations: RecommendationsResponse?
         // Get New Releases
         
         APICaller.shared.getNewReleases { result in
@@ -87,9 +90,9 @@ class HomeViewController: UIViewController {
             }
             switch result{
             case .success(let model):
-                break
+                newReleases = model
             case .failure(let error):
-                break
+                print(error.localizedDescription)
             }
         }
         
@@ -102,14 +105,10 @@ class HomeViewController: UIViewController {
             }
             switch result{
             case .success(let model):
-                break
+                featuredPlaylist = model
             case .failure(let error):
-                break
+                print(error.localizedDescription)
             }
-        }
-        
-        APICaller.shared.getRecommendations() { _ in
-            
         }
         
         
@@ -138,10 +137,12 @@ class HomeViewController: UIViewController {
                     case .success(let model):
                         break
                     case .failure(let error):
-                        break
+                        print(error.localizedDescription)
                     }
                 }
-            case .failure(let error): break
+            case .failure(let error):
+                print(error.localizedDescription)
+                
             }
         }
         // when group.enter() count == group.leave() meaning all async calls done we NOTIFY on the main thread and execute the next step
