@@ -135,7 +135,7 @@ class HomeViewController: UIViewController {
                     }
                     switch recommendedResult{
                     case .success(let model):
-                        break
+                        recommendations = model
                     case .failure(let error):
                         print(error.localizedDescription)
                     }
@@ -148,7 +148,14 @@ class HomeViewController: UIViewController {
         // when group.enter() count == group.leave() meaning all async calls done we NOTIFY on the main thread and execute the next step
         
         group.notify(queue: .main) {
-            <#code#>
+            guard let newAlbums = newReleases?.albums.items,
+                  let playlists = featuredPlaylist?.playlists.items,
+                  let tracks = recommendations?.tracks
+                  else{
+                return
+            }
+            
+            
         }
         
         
