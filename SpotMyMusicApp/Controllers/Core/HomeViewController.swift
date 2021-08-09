@@ -154,6 +154,12 @@ class HomeViewController: UIViewController {
                   else{
                 return
             }
+            
+            self.configureModels(
+                newAlbums: newAlbums,
+                playlists: playlists,
+                tracks: tracks)
+            
         }
     }
     
@@ -164,7 +170,13 @@ class HomeViewController: UIViewController {
         tracks: [AudioTrack]){
         
         //Configure Models
-        sections.append(.newReleases(viewModels: []))
+        sections.append(.newReleases(viewModels: newAlbums.compactMap({
+            return NewReleasesCellViewModel(
+                name: $0.name,
+                artworkURL: URL(string: $0.images.first?.url ?? ""),
+                numberOfTracks: $0.total_tracks,
+                artistName: $0.artists.first?.name ?? "-")
+        })))
         sections.append(.featuredPlaylists(viewModels: []))
         sections.append(.recommendedTracks(viewModels: []))
     }
