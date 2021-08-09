@@ -2,13 +2,13 @@
 //  ViewController.swift
 //  SpotMyMusicApp
 //
-//  Created by Anton Veldanov on 8/1/21.
+//  Created by Anton Veldanov on 8/1/21
 //
 
 import UIKit
 
 enum BrowserSectionType{
-    case newReleases // 1
+    case newReleases(viewModels: [NewReleasesCellViewModel]) // 1
     case featuredPlaylists //2
     case recommendedTracks //3
 }
@@ -56,6 +56,12 @@ class HomeViewController: UIViewController {
     private func configureCollectionView(){
         view.addSubview(collecitonView)
         collecitonView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collecitonView.register(NewReleaseCollectionViewCell.self, forCellWithReuseIdentifier: NewReleaseCollectionViewCell.identifier)
+        collecitonView.register(FeaturedPlaylistCollectionViewCell.self, forCellWithReuseIdentifier: FeaturedPlaylistCollectionViewCell.identifier)
+        collecitonView.register(RecommendedTrackCollectionViewCell.self, forCellWithReuseIdentifier: RecommendedTrackCollectionViewCell.identifier)
+
+        
+        
         collecitonView.dataSource = self
         collecitonView.delegate = self
         collecitonView.backgroundColor = .systemBackground
