@@ -154,19 +154,20 @@ class HomeViewController: UIViewController {
                   else{
                 return
             }
-            
-            
         }
-        
+    }
+    
+    
+    private func configureModels(
+        newAlbums: [Album],
+        playlists:[Playlist],
+        tracks: [AudioTrack]){
         
         //Configure Models
         sections.append(.newReleases(viewModels: []))
         sections.append(.featuredPlaylists(viewModels: []))
         sections.append(.recommendedTracks(viewModels: []))
-        
     }
-    
-    
     
     
     
