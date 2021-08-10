@@ -58,12 +58,11 @@ class HomeViewController: UIViewController {
     
     private func configureCollectionView(){
         view.addSubview(collecitonView)
+        
         collecitonView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         collecitonView.register(NewReleaseCollectionViewCell.self, forCellWithReuseIdentifier: NewReleaseCollectionViewCell.identifier)
         collecitonView.register(FeaturedPlaylistCollectionViewCell.self, forCellWithReuseIdentifier: FeaturedPlaylistCollectionViewCell.identifier)
         collecitonView.register(RecommendedTrackCollectionViewCell.self, forCellWithReuseIdentifier: RecommendedTrackCollectionViewCell.identifier)
-        
-        
         
         collecitonView.dataSource = self
         collecitonView.delegate = self
@@ -195,7 +194,6 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         return 5
     }
     
